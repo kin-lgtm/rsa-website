@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marcus Vane — Founder · Investor · Operator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="importmap">
+{ "imports": { "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.19/dist/lenis.mjs" } }
+</script>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  img,video{display:block;max-width:100%;}
+  ul,ol{list-style:none;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer;appearance:none;}
+
+  html{font-size:16px;background:#08080a;}
+  @media (max-width:1920px){ html{ font-size:0.833333vw; } }
+  @media (max-width:1440px){ html{ font-size:1.111111vw; } }
+  @media (max-width:1024px){ html{ font-size:1.5625vw; } }
+  @media (max-width:640px){
+    html{ font-size:4.444444vw; }
+    :root{ --gutter:16px; }
+  }
+
+  :root{
+    --font-display:"Anton", sans-serif;
+    --font-sans:"Onest", sans-serif;
+    --background:#08080a;
+    --foreground:#f3f1ea;
+    --surface:#111114;
+    --surface-2:#17171b;
+    --muted:#807f78;
+    --line:rgba(243,241,234,0.1);
+    --line-strong:rgba(243,241,234,0.22);
+    --accent:#ff3b1d;
+    --accent-2:#ff6a3d;
+    --gutter:2.5rem;
+    --section:9rem;
+    --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+    --ease-out-quart:cubic-bezier(0.165,0.84,0.44,1);
+  }
+
+  html,body{background:var(--background);}
+  body{
+    color:var(--foreground);
+    font-family:var(--font-sans);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:var(--background);}
+
+  main{position:relative;width:100%;overflow-x:hidden;}
+  .section{padding:var(--section) var(--gutter);}
+
+  .eyebrow{display:flex;align-items:center;gap:0.75rem;font-size:0.8125rem;line-height:1.2;font-weight:500;text-transform:uppercase;letter-spacing:0.22em;color:var(--muted);}
+  .eyebrow::before{content:"";width:0.5rem;height:0.5rem;border-radius:9999px;background:var(--accent);flex-shrink:0;}
+
+  .section-header{display:flex;flex-direction:column;gap:1.5rem;}
+  @media (min-width:640px){.section-header{flex-direction:row;align-items:flex-end;justify-content:space-between;}}
+  .section-counter{font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.22em;color:var(--muted);}
+
+  .heading{margin-top:1.5rem;font-family:var(--font-display);text-transform:uppercase;line-height:1;letter-spacing:-0.01em;font-size:3.25rem;}
+  .heading-lg{margin-top:1.5rem;max-width:16ch;font-family:var(--font-display);text-transform:uppercase;line-height:0.95;letter-spacing:-0.01em;font-size:3.25rem;}
+  @media (min-width:640px){.heading-lg{font-size:5rem;}}
+  .heading-xl{margin-top:1.5rem;max-width:18ch;font-family:var(--font-display);text-transform:uppercase;line-height:0.95;letter-spacing:-0.01em;font-size:5rem;}
+  @media (min-width:640px){.heading-xl{font-size:7.5rem;}}
+
+  .lead{margin-top:2rem;max-width:46ch;font-size:1.375rem;line-height:1.45;color:var(--muted);}
+
+  /* reveal utilities */
+  .reveal-16,.reveal-32,.reveal-60,.reveal-fade-only{opacity:0;}
+  .reveal-16{transform:translateY(16px);transition:opacity 520ms var(--ease-out-expo),transform 520ms var(--ease-out-expo);}
+  .reveal-32{transform:translateY(32px);transition:opacity 560ms var(--ease-out-expo),transform 560ms var(--ease-out-expo);}
+  .reveal-60{transform:translateY(60px);transition:opacity 620ms var(--ease-out-expo),transform 620ms var(--ease-out-expo);}
+  .reveal-fade-only{transition:opacity 400ms ease-out;}
+  .reveal-16.in-view,.reveal-32.in-view,.reveal-60.in-view,.reveal-fade-only.in-view{opacity:1;transform:translateY(0);}
+
+  /* ===== Preloader ===== */
+  #preloader{position:fixed;inset:0;z-index:100;display:flex;padding:var(--gutter);flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:0.75rem;background:var(--background);}
+  @media (min-width:640px){#preloader{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:1rem;}}
+  .preloader-brand{font-family:var(--font-display);font-size:1.75rem;line-height:1.15;text-transform:uppercase;letter-spacing:-0.01em;color:var(--foreground);transition:opacity 300ms ease;}
+  .preloader-count{font-family:var(--font-display);font-size:7.5rem;line-height:0.9;font-variant-numeric:tabular-nums;color:var(--foreground);transition:opacity 300ms ease;}
+  .preloader-count .accent{color:var(--accent);}
+  #preloader.fade .preloader-brand,#preloader.fade .preloader-count{opacity:0;}
+  #preloader.wipe{transform:translateY(-100%);transition:transform 650ms cubic-bezier(0.22,1,0.36,1);}
+  #preloader.done{pointer-events:none;}
+
+  /* ===== Nav ===== */
+  .site-header{position:fixed;inset-inline:0;top:0;z-index:50;pointer-events:none;}
+  .site-nav{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;padding:1.5rem var(--gutter);}
+  .logo{display:flex;align-items:center;gap:0.75rem;}
+  .logo-badge{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:9999px;border:1px solid var(--line-strong);font-weight:600;letter-spacing:-0.01em;font-size:0.9rem;}
+  .logo-name{display:none;font-size:0.8125rem;font-weight:500;text-transform:uppercase;letter-spacing:0.22em;color:var(--muted);}
+  @media (min-width:640px){.logo-name{display:block;}}
+  .nav-links{display:none;align-items:center;gap:2.5rem;}
+  @media (min-width:768px){.nav-links{display:flex;}}
+  .nav-links a{position:relative;display:inline-block;padding-bottom:0.25rem;font-size:0.8125rem;font-weight:500;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);transition:color 260ms ease-out;}
+  .nav-links a::after{content:"";position:absolute;bottom:-0.25rem;left:0;height:1px;width:0;background:var(--accent);transition:width 260ms ease-out;}
+  .nav-links a:hover{color:var(--foreground);}
+  .nav-links a:hover::after{width:100%;}
+  .burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0.375rem;width:2.5rem;height:2.5rem;}
+  @media (min-width:768px){.burger{display:none;}}
+  .burger span{display:block;height:0.125rem;width:1.5rem;background:var(--foreground);transition:transform 260ms ease-out,opacity 260ms ease-out;}
+  .burger.open span:nth-child(1){transform:translateY(0.5rem) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-0.5rem) rotate(-45deg);}
+
+  .mobile-menu{position:fixed;inset:0;z-index:50;background:var(--background);display:none;flex-direction:column;align-items:flex-start;justify-content:center;padding-inline:var(--gutter);opacity:0;transition:opacity 450ms ease-out;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu.visible{opacity:1;}
+  .mobile-menu ul{display:flex;flex-direction:column;gap:1rem;width:100%;}
+  .mobile-menu a{display:block;font-family:var(--font-display);font-size:3.25rem;text-transform:uppercase;line-height:1;letter-spacing:-0.01em;opacity:0;transform:translateY(48px);transition:opacity 420ms ease-out,transform 420ms ease-out;}
+  .mobile-menu.visible a{opacity:1;transform:translateY(0);}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;display:flex;flex-direction:column;min-height:100svh;overflow:hidden;}
+  .hero-top{position:relative;z-index:30;display:flex;flex-direction:column;gap:2rem;padding:7rem var(--gutter) 0;}
+  @media (min-width:640px){.hero-top{flex-direction:row;align-items:flex-start;justify-content:space-between;padding-top:8rem;gap:1rem;}}
+  .hero-roles{font-family:var(--font-display);text-transform:uppercase;line-height:1.05;letter-spacing:-0.01em;color:var(--foreground);font-size:1.75rem;}
+  @media (min-width:640px){.hero-roles{font-size:3.25rem;}}
+  .role-line{display:block;overflow:hidden;}
+  .hero-desc{max-width:26rem;font-size:1.0625rem;line-height:1.6;color:var(--muted);}
+  @media (min-width:640px){.hero-desc{text-align:right;}}
+
+  .hero-portrait-wrap{position:absolute;z-index:20;bottom:0;left:50%;transform:translateX(-50%);height:86vh;width:80vw;pointer-events:none;}
+  @media (min-width:640px){.hero-portrait-wrap{width:48vw;}}
+  @media (min-width:1024px){.hero-portrait-wrap{width:36vw;}}
+  .hero-portrait-wrap .liquid{pointer-events:auto;width:100%;height:100%;}
+  .hero-portrait-wrap .liquid-media{object-position:center bottom;}
+
+  .hero-gradient-base{position:absolute;inset-inline:0;bottom:0;z-index:20;height:26vh;background:linear-gradient(to bottom, transparent, var(--background));pointer-events:none;}
+
+  .hero-name{position:absolute;inset-inline:0;bottom:0;transform:translateY(6%);z-index:10;display:flex;flex-direction:column;align-items:center;font-family:var(--font-display);text-transform:uppercase;line-height:0.86;letter-spacing:-0.01em;color:var(--accent);font-size:13rem;}
+  @media (min-width:640px){.hero-name{font-size:28rem;line-height:0.78;}}
+  .name-line{display:block;white-space:nowrap;}
+
+  .scroll-cue{position:absolute;z-index:30;bottom:2rem;left:var(--gutter);display:flex;align-items:center;gap:0.75rem;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.22em;color:var(--muted);}
+  .cue-rule{display:block;width:1px;height:2.5rem;background:var(--accent);}
+
+  /* ===== Marquee ===== */
+  .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:2rem 0;}
+  .marquee-track{display:flex;width:max-content;flex-wrap:nowrap;animation:marquee 22s linear infinite;}
+  .marquee-group{display:flex;align-items:center;flex-wrap:nowrap;}
+  .marquee-word{font-family:var(--font-display);font-size:3.25rem;text-transform:uppercase;letter-spacing:-0.01em;white-space:nowrap;}
+  .marquee-dot{display:inline-block;margin-inline:2rem;width:0.625rem;height:0.625rem;border-radius:9999px;background:var(--accent);flex-shrink:0;}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== Story ===== */
+  .story-grid{display:grid;grid-template-columns:1fr;gap:3rem;}
+  @media (min-width:1024px){
+    .story-grid{grid-template-columns:repeat(12,1fr);gap:var(--gutter);}
+    .story-left{grid-column:span 6;}
+    .story-list{grid-column:span 6;padding-top:0.5rem;}
+  }
+  .story-list li{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;border-top:1px solid var(--line);padding:2rem 0;}
+  .story-list li:last-child{border-bottom:1px solid var(--line);}
+  .story-index{font-family:var(--font-sans);font-size:1.75rem;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;}
+  .story-list h3{font-family:var(--font-sans);font-size:1.75rem;font-weight:600;letter-spacing:-0.01em;}
+  .story-list p{margin-top:0.75rem;max-width:44ch;font-size:1.0625rem;color:var(--muted);}
+
+  /* ===== Ventures ===== */
+  .ventures-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;column-gap:var(--gutter);row-gap:4rem;}
+  @media (min-width:768px){
+    .ventures-grid{grid-template-columns:repeat(2,1fr);}
+    .venture-offset{margin-top:6rem;}
+  }
+  .venture-liquid{aspect-ratio:16/11;width:100%;border-radius:0.125rem;}
+  .venture-row{margin-top:1.5rem;border-top:1px solid var(--line);padding-top:1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;}
+  .venture-name{font-family:var(--font-sans);font-size:1.75rem;font-weight:600;letter-spacing:-0.01em;transition:color 340ms ease-out;}
+  .venture-card:hover .venture-name{color:var(--accent);}
+  .venture-blurb{margin-top:0.5rem;max-width:42ch;font-size:1.0625rem;color:var(--muted);}
+  .venture-meta{flex-shrink:0;text-align:right;}
+  .venture-year{font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);}
+  .venture-outcome{margin-top:0.5rem;font-size:0.8125rem;font-weight:500;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);}
+  .venture-category{margin-top:0.75rem;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.22em;color:var(--muted);}
+
+  /* ===== Impact ===== */
+  .stats-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);}
+  .stat-cell{display:flex;flex-direction:column;gap:1rem;border-bottom:1px solid var(--line);padding:2.5rem 0;}
+  @media (min-width:640px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat-cell:nth-child(2n){border-left:1px solid var(--line);padding-left:2rem;}
+  }
+  @media (min-width:1024px){
+    .stats-grid{grid-template-columns:repeat(4,1fr);}
+    .stat-cell{border-left:none;padding-left:0;padding-top:3rem;padding-bottom:3rem;}
+    .stat-cell:not(:nth-child(4n+1)){border-left:1px solid var(--line);padding-left:2rem;}
+  }
+  .stat-figure{font-family:var(--font-display);font-size:7.5rem;line-height:1;letter-spacing:-0.01em;transition:color 340ms ease-out;}
+  .stat-cell:hover .stat-figure{color:var(--accent);}
+  .stat-label{max-width:20ch;font-size:1.0625rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted);}
+
+  /* ===== Voices ===== */
+  .voices-body{margin-top:4rem;display:grid;grid-template-columns:1fr;gap:3rem;}
+  @media (min-width:1024px){
+    .voices-body{grid-template-columns:repeat(12,1fr);gap:var(--gutter);}
+    .voices-list{grid-column:span 5;}
+    .voices-featured{grid-column:span 7;}
+  }
+  .voice-btn{display:flex;align-items:baseline;gap:1.25rem;width:100%;border-top:1px solid var(--line);padding:1.75rem 0;text-align:left;}
+  .voices-list li:last-child .voice-btn{border-bottom:1px solid var(--line);}
+  .voice-num{font-size:0.8125rem;font-variant-numeric:tabular-nums;letter-spacing:0.18em;color:var(--muted);transition:color 260ms ease-out;}
+  .voice-btn.active .voice-num{color:var(--accent);}
+  .voice-info{display:flex;flex-direction:column;}
+  .voice-name{font-family:var(--font-sans);font-size:1.75rem;font-weight:600;letter-spacing:-0.01em;color:var(--muted);transition:color 260ms ease-out;}
+  .voice-btn.active .voice-name{color:var(--foreground);}
+  .voice-role{margin-top:0.25rem;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);}
+  .voice-rule{margin-left:auto;display:block;width:0;height:1px;background:var(--accent);transition:width 260ms ease-out;flex-shrink:0;align-self:center;}
+  .voice-btn.active .voice-rule{width:2.5rem;}
+
+  .voices-featured{display:grid;grid-template-columns:1fr;align-items:flex-start;gap:2rem;}
+  @media (min-width:640px){.voices-featured{grid-template-columns:1fr auto;}}
+  .voice-text{order:2;}
+  .voice-portrait-wrap{order:1;width:100%;}
+  @media (min-width:640px){
+    .voice-text{order:1;}
+    .voice-portrait-wrap{order:2;width:16rem;}
+  }
+  .voice-liquid{aspect-ratio:4/5;width:100%;border-radius:0.125rem;opacity:0;transform:scale(1.06);transition:opacity 640ms var(--ease-out-expo),transform 640ms var(--ease-out-expo);}
+  .voice-liquid.in-view{opacity:1;transform:scale(1);}
+  .voice-quote{max-width:30ch;}
+  .voice-quote p{font-family:var(--font-sans);font-size:1.75rem;font-weight:500;line-height:1.3;letter-spacing:-0.01em;color:var(--foreground);}
+  .voice-footer{margin-top:2rem;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);}
+
+  /* ===== Contact ===== */
+  .contact{padding-top:var(--section);padding-inline:var(--gutter);}
+  .email-link{margin-top:3rem;display:inline-flex;align-items:baseline;gap:0.75rem;font-family:var(--font-sans);font-weight:600;letter-spacing:-0.01em;word-break:break-all;font-size:1.75rem;color:var(--foreground);transition:color 340ms ease-out,transform 340ms ease-out;}
+  @media (min-width:640px){.email-link{font-size:5rem;gap:1rem;}}
+  .email-link:hover{color:var(--accent);transform:translateX(14px);}
+  .email-arrow{color:var(--accent);}
+  .footer-bar{margin-top:var(--section);border-top:1px solid var(--line);padding:3rem 0;display:grid;grid-template-columns:1fr;gap:2.5rem;}
+  @media (min-width:1024px){
+    .footer-bar{grid-template-columns:repeat(12,1fr);}
+    .footer-left{grid-column:span 6;}
+    .footer-social{grid-column:span 3;}
+    .footer-copy{grid-column:span 3;text-align:right;}
+  }
+  .footer-signature{font-family:var(--font-display);font-size:3.25rem;text-transform:uppercase;line-height:1;letter-spacing:-0.01em;}
+  .footer-tag{margin-top:1rem;font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.22em;color:var(--muted);}
+  .footer-social ul{display:flex;flex-direction:column;gap:0.75rem;}
+  .footer-social a{display:inline-flex;align-items:center;font-size:1.0625rem;color:var(--muted);transition:color 260ms ease-out;}
+  .footer-social a::before{content:"";display:inline-block;width:0;height:1px;background:var(--accent);margin-right:0;transition:width 260ms ease-out,margin-right 260ms ease-out;}
+  .footer-social a:hover::before{width:1.5rem;margin-right:0.75rem;}
+  .footer-social a:hover{color:var(--foreground);}
+  .footer-copy{font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);}
+
+  /* ===== Liquid image component ===== */
+  .liquid{position:relative;overflow:hidden;background:var(--surface);}
+  .liquid:not(.liquid-bare){background:radial-gradient(130% 130% at 30% 15%, var(--surface-2), var(--background));}
+  .liquid-bare{background:transparent;}
+  .liquid-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .liquid-veil{position:absolute;inset:0;background:#808080;mix-blend-mode:color;opacity:0.88;transition:opacity 380ms ease-out;pointer-events:none;}
+  .liquid:hover .liquid-veil{opacity:0;}
+  .liquid-glow{position:absolute;inset:0;background:linear-gradient(120deg, transparent 30%, color-mix(in srgb, var(--accent) 35%, transparent) 50%, transparent 70%);opacity:0;transition:opacity 340ms ease-out;pointer-events:none;}
+  .liquid:hover .liquid-glow{opacity:1;}
+  .liquid-vignette{position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 120%, color-mix(in srgb, #08080a 70%, transparent), transparent 60%);pointer-events:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div id="preloader" aria-hidden="false">
+  <p class="preloader-brand">Marcus Vane</p>
+  <p class="preloader-count"><span id="preloaderNumber">0</span><span class="accent">%</span></p>
+</div>
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="#top" class="logo">
+      <span class="logo-badge">MV</span>
+      <span class="logo-name">Marcus Vane</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#story">Story</a></li>
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#ventures">Ventures</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#voices">Voices</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<main>
+
+  <section id="top" class="hero">
+    <div class="hero-top">
+      <h2 class="hero-roles" id="heroRoles">
+        <span class="role-line">Founder</span>
+        <span class="role-line">Investor</span>
+        <span class="role-line">Operator</span>
+        <span class="role-line">Contrarian</span>
+      </h2>
+      <p class="hero-desc reveal-16" id="heroDesc">I start companies that shouldn't be possible — then make them inevitable. Four exits, one playbook: conviction before consensus.</p>
+    </div>
+
+    <div class="hero-portrait-wrap">
+      <div class="liquid liquid-bare" id="heroLiquid" data-bare="true" data-scale="30"
+        data-video="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/hero/hero.mp4"
+        data-poster="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/hero/portrait.webp"></div>
+    </div>
+
+    <div class="hero-gradient-base"></div>
+
+    <h1 class="hero-name" id="heroName">
+      <span class="name-line">Marcus</span>
+      <span class="name-line">Vane</span>
+    </h1>
+
+    <div class="scroll-cue reveal-fade-only" id="scrollCue">
+      <span class="cue-rule"></span>
+      Scroll to enter
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="Operating principles">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="marquee-word">Build Bold</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Scale Relentlessly</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Think In Decades</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Bet On People</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Ship The Future</span><span class="marquee-dot"></span>
+      </div>
+      <div class="marquee-group">
+        <span class="marquee-word">Build Bold</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Scale Relentlessly</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Think In Decades</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Bet On People</span><span class="marquee-dot"></span>
+        <span class="marquee-word">Ship The Future</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="section">
+    <div class="story-grid">
+      <div class="story-left">
+        <p class="eyebrow">The Story</p>
+        <h2 class="heading-lg" data-reveal-lines>Conviction is a competitive advantage.</h2>
+        <p class="lead reveal-16" data-reveal data-delay="0">For twenty years I've backed the version of the future most people couldn't see yet. From a dorm-room prototype to companies serving a hundred million people, the through-line never changed: find the hard problem everyone avoids, assemble the team nobody else could, and out-stubborn the doubt.</p>
+      </div>
+      <ul class="story-list">
+        <li class="reveal-32" data-reveal data-delay="0">
+          <span class="story-index">01</span>
+          <div>
+            <h3>Move before it's obvious</h3>
+            <p>The best opportunities look like mistakes right up until they look inevitable. I commit while the room is still hesitating.</p>
+          </div>
+        </li>
+        <li class="reveal-32" data-reveal data-delay="90">
+          <span class="story-index">02</span>
+          <div>
+            <h3>Hire founders, not employees</h3>
+            <p>I build teams of people who would start their own thing — then give them a reason not to. Ownership compounds faster than talent alone.</p>
+          </div>
+        </li>
+        <li class="reveal-32" data-reveal data-delay="180">
+          <span class="story-index">03</span>
+          <div>
+            <h3>Distribution is the product</h3>
+            <p>Genius unshipped is a hobby. Every venture is engineered around how it reaches the people it was built for.</p>
+          </div>
+        </li>
+        <li class="reveal-32" data-reveal data-delay="270">
+          <span class="story-index">04</span>
+          <div>
+            <h3>Play the long game loudly</h3>
+            <p>Patience and ambition are not opposites. I think in decades and act with urgency every single day.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="ventures" class="section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Selected Ventures</p>
+        <h2 class="heading-lg" data-reveal-lines>The work that moved markets.</h2>
+      </div>
+      <p class="section-counter">04 / Companies</p>
+    </div>
+    <ul class="ventures-grid">
+      <li class="venture-card reveal-60" data-reveal data-delay="0">
+        <div class="liquid venture-liquid" data-scale="28" data-alt="Helix Robotics"
+          data-src="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/ventures/venture-01.webp"></div>
+        <div class="venture-row">
+          <div>
+            <h3 class="venture-name">Helix Robotics</h3>
+            <p class="venture-blurb">Reinvented warehouse logistics with autonomous fleets now running in 40 countries.</p>
+          </div>
+          <div class="venture-meta">
+            <p class="venture-year">2019</p>
+            <p class="venture-outcome">Acquired — $1.1B</p>
+          </div>
+        </div>
+        <p class="venture-category">Industrial Automation</p>
+      </li>
+      <li class="venture-card venture-offset reveal-60" data-reveal data-delay="120">
+        <div class="liquid venture-liquid" data-scale="28" data-alt="Northwind Energy"
+          data-src="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/ventures/venture-02.webp"></div>
+        <div class="venture-row">
+          <div>
+            <h3 class="venture-name">Northwind Energy</h3>
+            <p class="venture-blurb">Brought utility-scale storage to the grid years before the market believed it was viable.</p>
+          </div>
+          <div class="venture-meta">
+            <p class="venture-year">2015</p>
+            <p class="venture-outcome">IPO — NYSE: NWND</p>
+          </div>
+        </div>
+        <p class="venture-category">Climate Infrastructure</p>
+      </li>
+      <li class="venture-card reveal-60" data-reveal data-delay="0">
+        <div class="liquid venture-liquid" data-scale="28" data-alt="Cadence Health"
+          data-src="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/ventures/venture-03.webp"></div>
+        <div class="venture-row">
+          <div>
+            <h3 class="venture-name">Cadence Health</h3>
+            <p class="venture-blurb">Put a clinician in every pocket and rewired how chronic care gets delivered.</p>
+          </div>
+          <div class="venture-meta">
+            <p class="venture-year">2011</p>
+            <p class="venture-outcome">Acquired — $640M</p>
+          </div>
+        </div>
+        <p class="venture-category">Digital Medicine</p>
+      </li>
+      <li class="venture-card venture-offset reveal-60" data-reveal data-delay="120">
+        <div class="liquid venture-liquid" data-scale="28" data-alt="Vane Capital"
+          data-src="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/ventures/venture-04.webp"></div>
+        <div class="venture-row">
+          <div>
+            <h3 class="venture-name">Vane Capital</h3>
+            <p class="venture-blurb">Backing the next generation of contrarian founders building hard, durable companies.</p>
+          </div>
+          <div class="venture-meta">
+            <p class="venture-year">2008</p>
+            <p class="venture-outcome">Active — $900M AUM</p>
+          </div>
+        </div>
+        <p class="venture-category">Venture Investing</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="impact" class="section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">By The Numbers</p>
+        <h2 class="heading" data-reveal-lines>Two decades, measured.</h2>
+      </div>
+    </div>
+    <dl class="stats-grid">
+      <div class="stat-cell reveal-32" data-reveal data-delay="0">
+        <dd class="stat-figure">4</dd>
+        <dt class="stat-label">Companies founded &amp; exited</dt>
+      </div>
+      <div class="stat-cell reveal-32" data-reveal data-delay="110">
+        <dd class="stat-figure">$3.2B</dd>
+        <dt class="stat-label">Enterprise value created</dt>
+      </div>
+      <div class="stat-cell reveal-32" data-reveal data-delay="220">
+        <dd class="stat-figure">120M+</dd>
+        <dt class="stat-label">People served by his products</dt>
+      </div>
+      <div class="stat-cell reveal-32" data-reveal data-delay="330">
+        <dd class="stat-figure">2,400</dd>
+        <dt class="stat-label">Jobs created across ventures</dt>
+      </div>
+    </dl>
+  </section>
+
+  <section id="voices" class="section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">Voices</p>
+        <h2 class="heading" data-reveal-lines>What they say.</h2>
+      </div>
+    </div>
+    <div class="voices-body">
+      <ul class="voices-list" id="voicesList">
+        <li><button class="voice-btn active" data-index="0">
+          <span class="voice-num">01</span>
+          <span class="voice-info"><span class="voice-name">Elena Cardoso</span><span class="voice-role">Managing Partner, Meridian Ventures</span></span>
+          <span class="voice-rule"></span>
+        </button></li>
+        <li><button class="voice-btn" data-index="1">
+          <span class="voice-num">02</span>
+          <span class="voice-info"><span class="voice-name">David Okonkwo</span><span class="voice-role">Founder &amp; CEO, Cadence Health</span></span>
+          <span class="voice-rule"></span>
+        </button></li>
+        <li><button class="voice-btn" data-index="2">
+          <span class="voice-num">03</span>
+          <span class="voice-info"><span class="voice-name">Priya Nandakumar</span><span class="voice-role">CEO, Northwind Energy</span></span>
+          <span class="voice-rule"></span>
+        </button></li>
+      </ul>
+      <div class="voices-featured">
+        <div class="voice-text">
+          <blockquote class="voice-quote"><p id="voiceQuoteText"></p></blockquote>
+          <footer class="voice-footer" id="voiceFooter">Elena Cardoso — Managing Partner, Meridian Ventures</footer>
+        </div>
+        <div class="voice-portrait-wrap">
+          <div class="liquid voice-liquid" id="voiceLiquid" data-scale="22" data-alt="Elena Cardoso"
+            data-src="https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/voices/voice-01.webp"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="contact">
+    <p class="eyebrow">Let's Build</p>
+    <h2 class="heading-xl" data-reveal-lines>Have something the world says can't be done?</h2>
+    <p class="lead reveal-16" data-reveal data-delay="0">That's usually where I start. I read every message I'm sent.</p>
+    <a href="mailto:hello@marcusvane.com" class="email-link">
+      <span>hello@marcusvane.com</span>
+      <span class="email-arrow">&#8599;</span>
+    </a>
+    <div class="footer-bar">
+      <div class="footer-left">
+        <p class="footer-signature">Marcus Vane</p>
+        <p class="footer-tag">Designed &amp; built with conviction.</p>
+      </div>
+      <nav class="footer-social" aria-label="Social">
+        <ul>
+          <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
+          <li><a href="https://x.com" target="_blank" rel="noreferrer noopener">X / Twitter</a></li>
+          <li><a href="https://substack.com" target="_blank" rel="noreferrer noopener">Substack</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">© 2026 Marcus Vane. All rights reserved.</p>
+    </div>
+  </footer>
+
+</main>
+
+<script type="module">
+import Lenis from "lenis";
+
+/* ---------- reduced motion ---------- */
+const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- adaptive rem grid ---------- */
+const FONT_BASE = 16, BASE_W = 1920, COEF = 0.6666;
+function applyAdaptiveGrid(){
+  const w = window.innerWidth;
+  const reduction = ((BASE_W - w) / BASE_W) * 100 * COEF;
+  const size = FONT_BASE - (FONT_BASE * reduction) / 100;
+  if (size > FONT_BASE) document.documentElement.style.fontSize = size + "px";
+  else document.documentElement.style.removeProperty("font-size");
+}
+applyAdaptiveGrid();
+window.addEventListener("resize", applyAdaptiveGrid);
+
+/* ---------- Lenis ---------- */
+const lenis = new Lenis({ smoothWheel: true });
+window.lenis = lenis;
+function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+if (!REDUCED) { lenis.stop(); window.scrollTo(0, 0); }
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener("click", e=>{
+    const id = a.getAttribute("href");
+    const target = document.querySelector(id);
+    if (target){
+      e.preventDefault();
+      closeMobileMenu();
+      lenis.scrollTo(target);
+    }
+  });
+});
+
+/* ---------- Preloader ---------- */
+const preloader = document.getElementById("preloader");
+const preloaderNumber = document.getElementById("preloaderNumber");
+
+function finishPreloader(){
+  preloader.classList.add("done");
+  preloader.style.display = "none";
+  lenis.start();
+}
+
+if (REDUCED){
+  finishPreloader();
+} else {
+  const startTime = performance.now();
+  const COUNT_MS = 2000;
+  function tickCount(now){
+    const t = Math.min(1, (now - startTime) / COUNT_MS);
+    preloaderNumber.textContent = Math.round(t * 100);
+    if (t < 1) requestAnimationFrame(tickCount);
+    else onCountDone();
+  }
+  requestAnimationFrame(tickCount);
+
+  function onCountDone(){
+    preloader.classList.add("fade");
+    setTimeout(()=>{
+      preloader.classList.add("wipe");
+      setTimeout(finishPreloader, 650);
+    }, 300 + 200);
+  }
+}
+
+/* ---------- Nav / mobile menu ---------- */
+const burgerBtn = document.getElementById("burgerBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+let menuOpen = false;
+
+function openMobileMenu(){
+  menuOpen = true;
+  burgerBtn.classList.add("open");
+  burgerBtn.setAttribute("aria-expanded", "true");
+  mobileMenu.classList.add("open");
+  const links = mobileMenu.querySelectorAll("a");
+  links.forEach((a,i)=>{ a.style.transitionDelay = (120 + i*90) + "ms"; });
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=> mobileMenu.classList.add("visible"));
+  });
+}
+function closeMobileMenu(){
+  if (!menuOpen) return;
+  menuOpen = false;
+  burgerBtn.classList.remove("open");
+  burgerBtn.setAttribute("aria-expanded", "false");
+  mobileMenu.classList.remove("visible");
+  setTimeout(()=> mobileMenu.classList.remove("open"), 450);
+}
+burgerBtn.addEventListener("click", ()=> menuOpen ? closeMobileMenu() : openMobileMenu());
+
+/* ---------- Liquid image component ---------- */
+let liquidCounter = 0;
+const hoverCapable = window.matchMedia("(hover: hover) and (pointer: fine)").matches && window.innerWidth > 768;
+
+function attachLiquidHover(root, feDisplacement, feTurbulence, scaleTarget){
+  if (!hoverCapable || REDUCED) return;
+  const freqBase = 0.009, freqTarget = 0.022;
+  const tension = 140, friction = 13, mass = 1;
+  let scale = 0, scaleVel = 0, freq = freqBase, freqVel = 0;
+  let target = 0, freqTargetCur = freqBase;
+  let running = false;
+  let lastT = null;
+
+  function step(now){
+    if (lastT === null) lastT = now;
+    const dt = Math.min(0.032, (now - lastT) / 1000);
+    lastT = now;
+
+    const fS = -tension * (scale - target) - friction * scaleVel;
+    scaleVel += (fS / mass) * dt;
+    scale += scaleVel * dt;
+
+    const fF = -tension * (freq - freqTargetCur) - friction * freqVel;
+    freqVel += (fF / mass) * dt;
+    freq += freqVel * dt;
+
+    feDisplacement.setAttribute("scale", Math.max(0, scale).toFixed(3));
+    feTurbulence.setAttribute("baseFrequency", Math.max(0.001, freq).toFixed(4));
+
+    if (Math.abs(scale - target) > 0.05 || Math.abs(scaleVel) > 0.02 || Math.abs(freq - freqTargetCur) > 0.0004 || Math.abs(freqVel) > 0.0004){
+      requestAnimationFrame(step);
+    } else {
+      running = false;
+      lastT = null;
+    }
+  }
+  function start(){ if (!running){ running = true; requestAnimationFrame(step); } }
+
+  root.addEventListener("pointerenter", ()=>{ target = scaleTarget; freqTargetCur = freqTarget; start(); });
+  root.addEventListener("pointerleave", ()=>{ target = 0; freqTargetCur = freqBase; start(); });
+}
+
+function buildLiquid(container){
+  liquidCounter++;
+  const filterId = "liquid-filter-" + liquidCounter;
+  const bare = container.dataset.bare === "true";
+  const scaleTarget = Number(container.dataset.scale || 24);
+  const alt = container.dataset.alt || "";
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("width", "0");
+  svg.setAttribute("height", "0");
+  svg.style.position = "absolute";
+  const filter = document.createElementNS(svgNS, "filter");
+  filter.setAttribute("id", filterId);
+  const turb = document.createElementNS(svgNS, "feTurbulence");
+  turb.setAttribute("type", "fractalNoise");
+  turb.setAttribute("baseFrequency", "0.009");
+  turb.setAttribute("numOctaves", "2");
+  turb.setAttribute("result", "noise");
+  const disp = document.createElementNS(svgNS, "feDisplacementMap");
+  disp.setAttribute("in", "SourceGraphic");
+  disp.setAttribute("in2", "noise");
+  disp.setAttribute("scale", "0");
+  filter.appendChild(turb);
+  filter.appendChild(disp);
+  svg.appendChild(filter);
+  container.appendChild(svg);
+
+  let media;
+  if (container.dataset.video){
+    media = document.createElement("video");
+    media.autoplay = true; media.muted = true; media.loop = true; media.playsInline = true;
+    media.preload = "auto";
+    media.poster = container.dataset.poster || "";
+    const source = document.createElement("source");
+    source.src = container.dataset.video;
+    source.type = "video/mp4";
+    media.appendChild(source);
+  } else {
+    media = document.createElement("img");
+    media.src = container.dataset.src || "";
+    media.alt = alt;
+    media.loading = "lazy";
+    media.decoding = "async";
+  }
+  media.className = "liquid-media";
+  media.style.filter = `url(#${filterId})`;
+  container.appendChild(media);
+
+  if (!bare){
+    const veil = document.createElement("div"); veil.className = "liquid-veil";
+    const glow = document.createElement("div"); glow.className = "liquid-glow";
+    const vignette = document.createElement("div"); vignette.className = "liquid-vignette";
+    container.appendChild(veil);
+    container.appendChild(glow);
+    container.appendChild(vignette);
+  }
+
+  attachLiquidHover(container, disp, turb, scaleTarget);
+  return media;
+}
+
+document.querySelectorAll(".liquid").forEach(buildLiquid);
+
+/* ---------- Text reveal engines ---------- */
+function prepareLetterReveal(el, { duration = 900, letterStagger = 52, baseDelay = 0 } = {}){
+  const text = el.textContent;
+  el.textContent = "";
+  el.style.display = "block";
+  el.style.overflow = "hidden";
+  [...text].forEach((ch, i)=>{
+    const outer = document.createElement("span");
+    outer.style.display = "inline-block";
+    outer.style.overflow = "hidden";
+    outer.style.verticalAlign = "top";
+    const inner = document.createElement("span");
+    inner.style.display = "inline-block";
+    inner.textContent = ch === " " ? " " : ch;
+    if (REDUCED){
+      inner.style.transform = "translateY(0)";
+      inner.style.opacity = "1";
+    } else {
+      inner.style.transform = "translateY(100%)";
+      inner.style.opacity = "0";
+      const d = baseDelay + i * letterStagger;
+      inner.style.transition = `transform ${duration}ms var(--ease-out-expo) ${d}ms, opacity ${duration}ms var(--ease-out-expo) ${d}ms`;
+    }
+    outer.appendChild(inner);
+    el.appendChild(outer);
+  });
+  return {
+    play(){
+      if (REDUCED) return;
+      requestAnimationFrame(()=>{
+        el.querySelectorAll(":scope > span > span").forEach(s=>{ s.style.transform = "translateY(0)"; s.style.opacity = "1"; });
+      });
+    }
+  };
+}
+
+function prepareLineWord(el, { duration = 760, baseDelay = 0 } = {}){
+  const text = el.textContent;
+  el.style.display = "block";
+  el.style.overflow = "hidden";
+  const inner = document.createElement("span");
+  inner.style.display = "inline-block";
+  inner.textContent = text;
+  if (REDUCED){
+    inner.style.transform = "translateY(0)";
+    inner.style.opacity = "1";
+  } else {
+    inner.style.transform = "translateY(110%)";
+    inner.style.opacity = "0";
+    inner.style.transition = `transform ${duration}ms var(--ease-out-expo) ${baseDelay}ms, opacity ${duration}ms var(--ease-out-expo) ${baseDelay}ms`;
+  }
+  el.textContent = "";
+  el.appendChild(inner);
+  return {
+    play(){
+      if (REDUCED) return;
+      requestAnimationFrame(()=>{ inner.style.transform = "translateY(0)"; inner.style.opacity = "1"; });
+    }
+  };
+}
+
+function prepareLineReveal(el, { duration = 900, lineStagger = 90 } = {}){
+  const text = el.textContent.trim();
+  const words = text.split(/\s+/);
+  el.textContent = "";
+  el.style.display = "block";
+  const wordEls = [];
+  words.forEach((w, i)=>{
+    const outer = document.createElement("span");
+    outer.style.display = "inline-block";
+    outer.style.overflow = "hidden";
+    outer.style.verticalAlign = "top";
+    const inner = document.createElement("span");
+    inner.style.display = "inline-block";
+    inner.textContent = w;
+    if (REDUCED){
+      inner.style.transform = "translateY(0)";
+      inner.style.opacity = "1";
+    } else {
+      inner.style.transform = "translateY(110%)";
+      inner.style.opacity = "0";
+    }
+    outer.appendChild(inner);
+    el.appendChild(outer);
+    wordEls.push({ outer, inner });
+    if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+  });
+
+  function applyDelays(){
+    if (REDUCED) return;
+    const tops = wordEls.map(w => w.outer.offsetTop);
+    const uniqueTops = [...new Set(tops)];
+    wordEls.forEach((w, i)=>{
+      const lineIndex = uniqueTops.indexOf(tops[i]);
+      const d = lineIndex * lineStagger;
+      w.inner.style.transition = `transform ${duration}ms var(--ease-out-expo) ${d}ms, opacity ${duration}ms var(--ease-out-expo) ${d}ms`;
+    });
+  }
+  applyDelays();
+  window.addEventListener("resize", applyDelays);
+
+  return {
+    play(){
+      if (REDUCED) return;
+      requestAnimationFrame(()=>{
+        wordEls.forEach(w=>{ w.inner.style.transform = "translateY(0)"; w.inner.style.opacity = "1"; });
+      });
+    }
+  };
+}
+
+function playQuote(text){
+  const p = document.getElementById("voiceQuoteText");
+  p.innerHTML = "";
+  const words = text.split(" ");
+  words[0] = "“" + words[0];
+  words[words.length - 1] = words[words.length - 1] + "”";
+  const inners = [];
+  words.forEach((w, i)=>{
+    const outer = document.createElement("span");
+    outer.style.display = "inline-block";
+    outer.style.overflow = "hidden";
+    outer.style.verticalAlign = "top";
+    const inner = document.createElement("span");
+    inner.style.display = "inline-block";
+    inner.textContent = w;
+    if (REDUCED){
+      inner.style.transform = "translateY(0)";
+      inner.style.opacity = "1";
+    } else {
+      inner.style.transform = "translateY(18px)";
+      inner.style.opacity = "0";
+      inner.style.transition = `transform 520ms var(--ease-out-quart) ${i * 22}ms, opacity 520ms var(--ease-out-quart) ${i * 22}ms`;
+    }
+    outer.appendChild(inner);
+    p.appendChild(outer);
+    if (i < words.length - 1) p.appendChild(document.createTextNode(" "));
+    inners.push(inner);
+  });
+  if (!REDUCED){
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        inners.forEach(inner=>{ inner.style.transform = "translateY(0)"; inner.style.opacity = "1"; });
+      });
+    });
+  }
+}
+
+/* ---------- init after fonts ready ---------- */
+function init(){
+  /* hero */
+  const nameLines = document.querySelectorAll("#heroName .name-line");
+  const nameEngines = [
+    prepareLetterReveal(nameLines[0], { duration: 900, letterStagger: 52, baseDelay: 0 }),
+    prepareLetterReveal(nameLines[1], { duration: 900, letterStagger: 52, baseDelay: 240 })
+  ];
+  const roleLines = document.querySelectorAll("#heroRoles .role-line");
+  const roleEngines = Array.from(roleLines).map((el, i)=> prepareLineWord(el, { duration: 760, baseDelay: i * 80 }));
+
+  const heroDesc = document.getElementById("heroDesc");
+  const scrollCue = document.getElementById("scrollCue");
+
+  if (REDUCED){
+    nameEngines.forEach(e=>e.play());
+    roleEngines.forEach(e=>e.play());
+    heroDesc.classList.add("in-view");
+    scrollCue.classList.add("in-view");
+  } else {
+    setTimeout(()=> nameEngines.forEach(e=>e.play()), 2500);
+    setTimeout(()=> roleEngines.forEach(e=>e.play()), 2700);
+    setTimeout(()=> heroDesc.classList.add("in-view"), 2900);
+    setTimeout(()=> scrollCue.classList.add("in-view"), 3400);
+  }
+
+  /* scroll-triggered section heading line reveals */
+  const lineEngines = new Map();
+  document.querySelectorAll("[data-reveal-lines]").forEach(el=>{
+    lineEngines.set(el, prepareLineReveal(el, { duration: 900, lineStagger: 90 }));
+  });
+
+  if (REDUCED){
+    lineEngines.forEach(engine=> engine.play());
+  } else {
+    const headingIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          lineEngines.get(entry.target)?.play();
+          headingIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0 });
+    document.querySelectorAll("[data-reveal-lines]").forEach(el=> headingIO.observe(el));
+  }
+
+  /* generic fade/slide reveals */
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if (REDUCED){
+    revealEls.forEach(el=> el.classList.add("in-view"));
+  } else {
+    const revealIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0 });
+    revealEls.forEach(el=>{
+      const delay = el.dataset.delay || 0;
+      el.style.transitionDelay = delay + "ms";
+      revealIO.observe(el);
+    });
+  }
+
+  /* voice portrait scale-in on first view */
+  const voiceLiquid = document.getElementById("voiceLiquid");
+  if (REDUCED){
+    voiceLiquid.classList.add("in-view");
+  } else {
+    const voiceIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          voiceIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0 });
+    voiceIO.observe(voiceLiquid);
+  }
+
+  /* voices interactivity */
+  const voices = [
+    { name: "Elena Cardoso", role: "Managing Partner, Meridian Ventures",
+      quote: "Marcus saw the market three years before the rest of us. Betting alongside him changed the trajectory of my entire career.",
+      img: "https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/voices/voice-01.webp" },
+    { name: "David Okonkwo", role: "Founder & CEO, Cadence Health",
+      quote: "He doesn't just write checks — he gets in the trenches at 6am and refuses to leave until the impossible part is solved.",
+      img: "https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/voices/voice-02.webp" },
+    { name: "Priya Nandakumar", role: "CEO, Northwind Energy",
+      quote: "The most demanding mentor I've ever had, and the only reason our company survived its first winter. Relentless, generous, right.",
+      img: "https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6/voices/voice-03.webp" }
+  ];
+  const voiceButtons = document.querySelectorAll(".voice-btn");
+  const voiceFooter = document.getElementById("voiceFooter");
+  const voiceMedia = voiceLiquid.querySelector(".liquid-media");
+
+  function setActiveVoice(i, animate){
+    voiceButtons.forEach(b=> b.classList.toggle("active", Number(b.dataset.index) === i));
+    const v = voices[i];
+    voiceFooter.textContent = `${v.name} — ${v.role}`;
+    if (voiceMedia) voiceMedia.src = v.img;
+    if (animate) playQuote(v.quote);
+    else {
+      const p = document.getElementById("voiceQuoteText");
+      p.textContent = `“${v.quote}”`;
+    }
+  }
+  voiceButtons.forEach(btn=>{
+    btn.addEventListener("click", ()=> setActiveVoice(Number(btn.dataset.index), true));
+  });
+  setActiveVoice(0, !REDUCED);
+}
+
+if (document.fonts && document.fonts.ready){
+  Promise.race([
+    document.fonts.ready,
+    new Promise(res=> setTimeout(res, 400))
+  ]).then(init);
+} else {
+  init();
+}
+</script>
+</body>
+</html>
