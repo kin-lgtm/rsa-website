@@ -134,7 +134,7 @@ export default function Home() {
       feTurbulence: SVGFETurbulenceElement,
       scaleTarget: number,
     ) {
-      if (!hoverCapable || REDUCED) return;
+      if (!hoverCapable || REDUCED || el.dataset.noHover !== undefined) return;
       const freqBase = 0.009;
       const freqTarget = 0.022;
       const tension = 140;
@@ -698,9 +698,10 @@ export default function Home() {
             <li className="venture-card reveal-60" data-reveal="" data-delay="0">
               <div
                 className="liquid venture-liquid"
+                data-no-hover=""
                 data-scale="28"
                 data-alt="Helix Robotics"
-                data-src={`${ASSET_BASE}/ventures/venture-01.webp`}
+                data-src="/gallery-1.JPG"
               ></div>
               <div className="venture-row">
                 <div>
@@ -720,9 +721,10 @@ export default function Home() {
             <li className="venture-card venture-offset reveal-60" data-reveal="" data-delay="120">
               <div
                 className="liquid venture-liquid"
+                data-no-hover=""
                 data-scale="28"
                 data-alt="Northwind Energy"
-                data-src={`${ASSET_BASE}/ventures/venture-02.webp`}
+                data-src="/gallery-2.png"
               ></div>
               <div className="venture-row">
                 <div>
@@ -742,9 +744,10 @@ export default function Home() {
             <li className="venture-card reveal-60" data-reveal="" data-delay="0">
               <div
                 className="liquid venture-liquid"
+                data-no-hover=""
                 data-scale="28"
                 data-alt="Cadence Health"
-                data-src={`${ASSET_BASE}/ventures/venture-03.webp`}
+                data-src="/gallery-3.JPG"
               ></div>
               <div className="venture-row">
                 <div>
@@ -763,9 +766,10 @@ export default function Home() {
             <li className="venture-card venture-offset reveal-60" data-reveal="" data-delay="120">
               <div
                 className="liquid venture-liquid"
+                data-no-hover=""
                 data-scale="28"
                 data-alt="RSA Capital"
-                data-src={`${ASSET_BASE}/ventures/venture-04.webp`}
+                data-src="/gallery-4.JPG"
               ></div>
               <div className="venture-row">
                 <div>
