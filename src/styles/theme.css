@@ -137,8 +137,12 @@ main{ position:relative; width:100%; overflow-x:hidden; }
 .hero{ position:relative; display:flex; flex-direction:column; min-height:100svh; overflow:hidden; }
 .hero-top{ position:relative; z-index:30; display:flex; flex-direction:column; gap:2rem; padding:7rem var(--gutter) 0; }
 @media (min-width:640px){ .hero-top{ flex-direction:row; align-items:flex-start; justify-content:flex-end; padding-top:8rem; gap:1rem; } }
-.hero-desc{ max-width:26rem; font-size:1.1875rem; line-height:1.6; color:#ffffff; }
+.hero-desc{ max-width:28rem; font-size:1.1rem; line-height:1.6; color:#ffffff; }
 @media (min-width:640px){ .hero-desc{ text-align:right; } }
+.hero-prote-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.4rem; text-align:left; }
+@media (min-width:640px){ .hero-prote-list{ text-align:right; } }
+.hero-prote-list li{ font-size:1.05rem; line-height:1.45; color:rgba(255,255,255,0.92); font-weight:500; text-shadow:0 2px 8px rgba(0,0,0,0.6); }
+.hero-prote-list strong{ color:var(--accent); font-weight:800; }
 
 .hero-bg{ position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; background-color:var(--surface-2); }
 .hero-scrim{
@@ -153,11 +157,11 @@ main{ position:relative; width:100%; overflow-x:hidden; }
   position:absolute; inset-inline:0; bottom:0; transform:translateY(6%); z-index:10;
   display:flex; flex-direction:column; align-items:center;
   font-family:var(--font-display); text-transform:uppercase; line-height:0.86; letter-spacing:-0.01em;
-  font-size:9rem;
+  font-size:5.5rem;
   color:#ffffff;
   text-shadow: 0 0.5rem 3rem color-mix(in srgb, var(--accent) 55%, transparent), 0 0.15rem 0.5rem rgba(0,0,0,0.4);
 }
-@media (min-width:640px){ .hero-name{ font-size:22rem; line-height:0.78; } }
+@media (min-width:640px){ .hero-name{ font-size:13.5rem; line-height:0.78; } }
 .name-line{ display:block; white-space:nowrap; }
 
 .scroll-cue{ position:absolute; z-index:30; bottom:2rem; left:var(--gutter); display:flex; align-items:center; gap:0.75rem; font-size:0.8125rem; text-transform:uppercase; letter-spacing:0.22em; color:var(--muted); }

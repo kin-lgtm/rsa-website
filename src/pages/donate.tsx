@@ -5,9 +5,9 @@ import { usePageMotion } from '../hooks/usePageMotion';
 
 const bankDetails = [
   { key: 'Bank Name', value: 'Bank of Ceylon' },
-  { key: 'Account Name', value: 'Ayubowan Gifts Collection' },
+  { key: 'Account Name', value: 'Road Safety Academy' },
   { key: 'Account Number', value: '0012 3456 7890' },
-  { key: 'Branch', value: 'Colombo 03' },
+  { key: 'Branch', value: 'Kilinochchi' },
   { key: 'SWIFT Code', value: 'BCEYLKLX' },
 ];
 
@@ -42,10 +42,10 @@ export default function Donate() {
       <section className="page-hero">
         <p className="eyebrow">Donate</p>
         <h1 className="heading-xl reveal-16" data-reveal data-delay="0">
-          Help us build what&rsquo;s next.
+          Help us save lives on Sri Lankan roads.
         </h1>
         <p className="lead reveal-16" data-reveal data-delay="90">
-          Your contribution helps us complete community and heritage projects across Sri Lanka.
+          Your contribution powers road safety education, driver training, victim counseling, and community empowerment.
         </p>
       </section>
 
@@ -60,7 +60,7 @@ export default function Donate() {
                   <Landmark />
                 </div>
                 <p className="card-title" style={{ marginTop: 0 }}>
-                  Ayubowan Gifts Collection
+                  Road Safety Academy
                 </p>
               </div>
               <ul className="info-list">
