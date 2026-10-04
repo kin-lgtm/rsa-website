@@ -7,31 +7,35 @@ const infoCards = [
   {
     icon: MapPin,
     title: 'Address',
-    lines: ['123 Galle Road', 'Colombo 03', 'Sri Lanka'],
+    lines: [
+      'No. 52, MSP Pre-School',
+      'Anandanagar, Post Code: 44000',
+      'Kilinochchi, Sri Lanka.',
+    ],
   },
   {
     icon: Phone,
     title: 'Phone',
-    lines: ['+94 11 234 5678', '+94 77 123 4567'],
+    lines: ['+94 7777911944'],
   },
   {
     icon: Mail,
     title: 'Email',
-    lines: ['info@ayubowan.lk', 'support@ayubowan.lk'],
+    lines: ['roadsafetyacademy.lk@gmail.com'],
   },
   {
     icon: Clock,
-    title: 'Business Hours',
-    lines: ['Mon - Fri: 9:00 AM - 6:00 PM', 'Sat: 9:00 AM - 2:00 PM'],
+    title: 'Secretary - RSA',
+    lines: ['Rtn. (Eng., Dr.) T. Sivakumar'],
   },
 ];
 
 const reasons = [
-  'Custom orders and bulk purchases',
-  'Product inquiries and availability',
-  'International shipping information',
-  'Partnership and wholesale opportunities',
-  'General support and assistance',
+  'Road safety education and awareness programs',
+  'Driver training & auditing inquiries',
+  'Community empowerment & ambassador initiatives',
+  'Crash victim support & counseling referrals',
+  'Partnerships, research & advocacy collaborations',
 ];
 
 export default function Contact() {
@@ -162,7 +166,7 @@ export default function Contact() {
 
           <div className="reveal-32" data-reveal data-delay="120">
             <p className="eyebrow">Find Us</p>
-            <h2 className="heading-sm">Visit the store</h2>
+            <h2 className="heading-sm">Visit the Office</h2>
             <div className="map-placeholder">
               <MapPin />
               <p>Map will be displayed here</p>

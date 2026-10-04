@@ -34,17 +34,21 @@ export default function Footer() {
         <div className="footer-contact">
           <p className="footer-heading">Get In Touch</p>
           <ul>
+            <li style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.2rem' }}>
+              <span style={{ fontWeight: 600, color: 'var(--foreground)' }}>Rtn. (Eng., Dr.) T. Sivakumar</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>Secretary - RSA</span>
+            </li>
             <li>
               <Mail />
-              info@ayubowan.lk
+              roadsafetyacademy.lk@gmail.com
             </li>
             <li>
               <Phone />
-              +94 11 234 5678
+              +94 7777911944
             </li>
             <li>
               <MapPin />
-              123 Galle Road, Colombo 03, Sri Lanka
+              No. 52, MSP Pre-School, Anandanagar, Post Code: 44000, Kilinochchi, Sri Lanka.
             </li>
           </ul>
         </div>

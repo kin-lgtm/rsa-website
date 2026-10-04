@@ -424,10 +424,9 @@ export default function Home() {
 
       /* hero */
       const nameLines = root.querySelectorAll<HTMLElement>('#heroName .name-line');
-      const nameEngines = [
-        prepareLetterReveal(nameLines[0], { duration: 900, letterStagger: 52, baseDelay: 0 }),
-        prepareLetterReveal(nameLines[1], { duration: 900, letterStagger: 52, baseDelay: 240 }),
-      ];
+      const nameEngines = Array.from(nameLines).map((line, idx) =>
+        prepareLetterReveal(line, { duration: 900, letterStagger: 40, baseDelay: idx * 200 }),
+      );
       const heroDesc = root.querySelector<HTMLElement>('#heroDesc')!;
       const scrollCue = root.querySelector<HTMLElement>('#scrollCue')!;
 
@@ -579,14 +578,20 @@ export default function Home() {
           <div className="hero-scrim"></div>
 
           <div className="hero-top">
-            <p className="hero-desc reveal-16" id="heroDesc">
-              I start companies that shouldn&rsquo;t be possible — then make them inevitable.
-              Four exits, one playbook: conviction before consensus.
-            </p>
+            <div className="hero-desc reveal-16" id="heroDesc">
+              <ul className="hero-prote-list">
+                <li><strong>P</strong> &ndash; Purposeful Education</li>
+                <li><strong>R</strong> &ndash; Responsible Empowerment</li>
+                <li><strong>O</strong> &ndash; Outreach with Compassion for Healing</li>
+                <li><strong>T</strong> &ndash; Transformative Advocacy</li>
+                <li><strong>E</strong> &ndash; Evidence-led Research</li>
+              </ul>
+            </div>
           </div>
 
           <h1 className="hero-name" id="heroName">
-            <span className="name-line">RSA</span>
+            <span className="name-line">Road</span>
+            <span className="name-line">Safety</span>
             <span className="name-line">Academy</span>
           </h1>
 
@@ -599,27 +604,27 @@ export default function Home() {
         <section className="marquee" aria-label="Operating principles">
           <div className="marquee-track">
             <div className="marquee-group">
-              <span className="marquee-word">Build Bold</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Scale Relentlessly</span>
-              <span className="marquee-dot"></span>
               <span className="marquee-word">Think In Decades</span>
               <span className="marquee-dot"></span>
               <span className="marquee-word">Bet On People</span>
               <span className="marquee-dot"></span>
               <span className="marquee-word">Ship The Future</span>
+              <span className="marquee-dot"></span>
+              <span className="marquee-word">Build Bold</span>
+              <span className="marquee-dot"></span>
+              <span className="marquee-word">Scale Relentlessly</span>
               <span className="marquee-dot"></span>
             </div>
             <div className="marquee-group">
-              <span className="marquee-word">Build Bold</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Scale Relentlessly</span>
-              <span className="marquee-dot"></span>
               <span className="marquee-word">Think In Decades</span>
               <span className="marquee-dot"></span>
               <span className="marquee-word">Bet On People</span>
               <span className="marquee-dot"></span>
               <span className="marquee-word">Ship The Future</span>
+              <span className="marquee-dot"></span>
+              <span className="marquee-word">Build Bold</span>
+              <span className="marquee-dot"></span>
+              <span className="marquee-word">Scale Relentlessly</span>
               <span className="marquee-dot"></span>
             </div>
           </div>
