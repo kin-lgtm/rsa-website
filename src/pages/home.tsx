@@ -7,8 +7,6 @@ import { hasHomePreloaderPlayed, markHomePreloaderPlayed } from '../lib/session'
 import '../styles/theme.css';
 
 const SVG_NS = 'http://www.w3.org/2000/svg' as const;
-const ASSET_BASE =
-  'https://api.getlayers.ai/storage/v1/object/public/public/assets/marcus-vane-6799bd1fb6';
 
 interface Voice {
   name: string;
@@ -19,25 +17,25 @@ interface Voice {
 
 const VOICES: Voice[] = [
   {
-    name: 'Kasun Fernando',
-    role: 'Managing Partner, Meridian Ventures',
+    name: 'Mr. S. Muralitharan',
+    role: 'Government Agent & District Secretary, Kilinochchi',
     quote:
-      "RSA saw the need three years before the rest of us. Partnering alongside RSA changed the trajectory of my entire career.",
-    img: `${ASSET_BASE}/voices/voice-01.webp`,
+      'Sanctioning five acres in Umaiyalpuram for the Road Safety Academy is a vital public safety milestone for our district. Moving learner drivers off active highways into a structured, regulation-compliant training environment will save countless lives across Sri Lanka.',
+    img: '/voice-muralitharan.jpg',
   },
   {
-    name: 'Thivya Selvarajah',
-    role: 'Founder & CEO, Cadence Health',
+    name: 'Mr. Aloysious Santhiapillai',
+    role: 'Former Chief Engineer, Traffic Accident Investigation (Bergen, Norway)',
     quote:
-      "He doesn't just write checks — he gets in the trenches at 6am and refuses to leave until the impossible part is solved.",
-    img: `${ASSET_BASE}/voices/voice-02.webp`,
+      'Norway achieved the world’s safest roads through the Vision Zero framework — designing transport systems that forgive human mistakes without lethal consequences. The Academy brings this scientific standard to Sri Lanka.',
+    img: '/voice-santhiapillai.jpg',
   },
   {
-    name: 'Fathima Rizwan',
-    role: 'CEO, Northwind Energy',
+    name: 'Rtn. R. Kajendrakumar',
+    role: 'Project Lead, Rotary Club of Kilinochchi Town',
     quote:
-      'The most demanding mentor I’ve ever had, and the only reason our company survived its first winter. Relentless, generous, right.',
-    img: `${ASSET_BASE}/voices/voice-03.webp`,
+      'Having attended too many funerals of friends and neighbours lost to preventable accidents, we knew our community needed decisive action. Partnering with government and expert engineers turns our shared grief into lasting protection.',
+    img: '/voice-kajendrakumar.jpg',
   },
 ];
 
@@ -577,23 +575,36 @@ export default function Home() {
           <div className="hero-bg" style={{ backgroundImage: 'url(/hero-bg.jfif)' }}></div>
           <div className="hero-scrim"></div>
 
-          <div className="hero-top">
-            <div className="hero-desc reveal-16" id="heroDesc">
-              <ul className="hero-prote-list">
-                <li><strong>P</strong> &ndash; Purposeful Education</li>
-                <li><strong>R</strong> &ndash; Responsible Empowerment</li>
-                <li><strong>O</strong> &ndash; Outreach with Compassion for Healing</li>
-                <li><strong>T</strong> &ndash; Transformative Advocacy</li>
-                <li><strong>E</strong> &ndash; Evidence-led Research</li>
-              </ul>
+          <div className="hero-content-wrap">
+            <div className="hero-badge">
+              <span className="hero-badge-dot"></span>
+              <span>Road Safety Academy &bull; Sri Lanka</span>
+            </div>
+
+            <h1 className="hero-name" id="heroName">
+              <span className="name-line">Road</span>
+              <span className="name-line">Safety</span>
+              <span className="name-line">Academy</span>
+            </h1>
+
+            <p className="hero-lead reveal-16" id="heroDesc">
+              Every Journey Safe. Every Life Valued.
+            </p>
+
+            <div className="hero-actions-wrap reveal-16">
+              <Link to="/donate" className="btn-hero">
+                Donate Now <span aria-hidden="true">&#8599;</span>
+              </Link>
+              <Link to="/about" className="btn-hero-secondary">
+                Learn More &rarr;
+              </Link>
             </div>
           </div>
 
-          <h1 className="hero-name" id="heroName">
-            <span className="name-line">Road</span>
-            <span className="name-line">Safety</span>
-            <span className="name-line">Academy</span>
-          </h1>
+          <div className="hero-car-tag" aria-hidden="true">
+            <span className="car-tag-dot"></span>
+            <span>Driver Training &bull; Safe Roads For All</span>
+          </div>
 
           <div className="scroll-cue reveal-fade-only" id="scrollCue">
             <span className="cue-rule"></span>
@@ -601,30 +612,34 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="marquee" aria-label="Operating principles">
+        <section className="marquee" aria-label="Academy Core Pillars">
           <div className="marquee-track">
             <div className="marquee-group">
-              <span className="marquee-word">Think In Decades</span>
+              <span className="marquee-word">Vision Zero</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Bet On People</span>
+              <span className="marquee-word">Driver Training Track</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Ship The Future</span>
+              <span className="marquee-word">High-Fidelity Simulation</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Build Bold</span>
+              <span className="marquee-word">Safety First</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Scale Relentlessly</span>
+              <span className="marquee-word">Kilinochchi Campus</span>
+              <span className="marquee-dot"></span>
+              <span className="marquee-word">Every Life Valued</span>
               <span className="marquee-dot"></span>
             </div>
             <div className="marquee-group">
-              <span className="marquee-word">Think In Decades</span>
+              <span className="marquee-word">Vision Zero</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Bet On People</span>
+              <span className="marquee-word">Driver Training Track</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Ship The Future</span>
+              <span className="marquee-word">High-Fidelity Simulation</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Build Bold</span>
+              <span className="marquee-word">Safety First</span>
               <span className="marquee-dot"></span>
-              <span className="marquee-word">Scale Relentlessly</span>
+              <span className="marquee-word">Kilinochchi Campus</span>
+              <span className="marquee-dot"></span>
+              <span className="marquee-word">Every Life Valued</span>
               <span className="marquee-dot"></span>
             </div>
           </div>
@@ -633,55 +648,48 @@ export default function Home() {
         <section id="story" className="section">
           <div className="story-grid">
             <div className="story-left">
-              <p className="eyebrow">The Story</p>
+              <p className="eyebrow">The Origin &amp; Mission</p>
               <h2 className="heading-lg" data-reveal-lines="">
-                Conviction is a competitive advantage.
+                Transforming road safety from crisis to culture.
               </h2>
               <p className="lead reveal-16" data-reveal="" data-delay="0">
-                For twenty years I&rsquo;ve backed the version of the future most people
-                couldn&rsquo;t see yet. From a dorm-room prototype to companies serving a hundred
-                million people, the through-line never changed: find the hard problem everyone
-                avoids, assemble the team nobody else could, and out-stubborn the doubt.
+                In Sri Lanka, over 2,500 lives are tragically lost each year in road traffic accidents — an average of 6.5 deaths every single day. In the Northern Province, learner drivers have historically trained on public roads without access to a controlled environment that simulates complex real-world situations. The Road Safety Academy changes this paradigm by establishing the nation&rsquo;s premier purpose-built driver education ecosystem in Kilinochchi.
               </p>
             </div>
             <ul className="story-list">
               <li className="reveal-32" data-reveal="" data-delay="0">
                 <span className="story-index">01</span>
                 <div>
-                  <h3>Move before it&rsquo;s obvious</h3>
+                  <h3>Vision Zero Philosophy</h3>
                   <p>
-                    The best opportunities look like mistakes right up until they look
-                    inevitable. I commit while the room is still hesitating.
+                    Inspired by the Norwegian road safety model championed by retired Chief Engineer Aloysious Santhiapillai: road environments engineered to accommodate human error without lethal outcomes.
                   </p>
                 </div>
               </li>
               <li className="reveal-32" data-reveal="" data-delay="90">
                 <span className="story-index">02</span>
                 <div>
-                  <h3>Hire founders, not employees</h3>
+                  <h3>Public–Private Partnership</h3>
                   <p>
-                    I build teams of people who would start their own thing — then give them
-                    a reason not to. Ownership compounds faster than talent alone.
+                    A collaborative initiative spearheaded by the Rotary Club of Kilinochchi Town (District 3220) and the Government Agent of Kilinochchi, securing 5 acres of land in Umaiyalpuram along the A9 corridor.
                   </p>
                 </div>
               </li>
               <li className="reveal-32" data-reveal="" data-delay="180">
                 <span className="story-index">03</span>
                 <div>
-                  <h3>Distribution is the product</h3>
+                  <h3>Simulation to Track Progression</h3>
                   <p>
-                    Genius unshipped is a hobby. Every venture is engineered around how it
-                    reaches the people it was built for.
+                    A structured 4-stage curriculum integrating theory, high-fidelity virtual simulators, closed-loop track maneuvering, and real-world competency evaluation.
                   </p>
                 </div>
               </li>
               <li className="reveal-32" data-reveal="" data-delay="270">
                 <span className="story-index">04</span>
                 <div>
-                  <h3>Play the long game loudly</h3>
+                  <h3>RDA &amp; RMV Standards</h3>
                   <p>
-                    Patience and ambition are not opposites. I think in decades and act with
-                    urgency every single day.
+                    Engineered by Master Hellie&rsquo;s Engineering Consultants in strict compliance with Road Development Authority and Department of Motor Traffic regulations for light, heavy, and motorcycle licenses.
                   </p>
                 </div>
               </li>
@@ -692,12 +700,12 @@ export default function Home() {
         <section id="ventures" className="section">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Selected Ventures</p>
+              <p className="eyebrow">The Institute Infrastructure</p>
               <h2 className="heading-lg" data-reveal-lines="">
-                The work that moved markets.
+                Purpose-built facilities for real-world mastery.
               </h2>
             </div>
-            <p className="section-counter">04 / Companies</p>
+            <p className="section-counter">04 / Facilities</p>
           </div>
           <ul className="ventures-grid">
             <li className="venture-card reveal-60" data-reveal="" data-delay="0">
@@ -705,91 +713,88 @@ export default function Home() {
                 className="liquid venture-liquid"
                 data-no-hover=""
                 data-scale="28"
-                data-alt="Helix Robotics"
-                data-src="/gallery-1.JPG"
+                data-alt="Professional Driver Training Track - 1.5 km closed-loop network"
+                data-src="/facility-track.jpg"
               ></div>
               <div className="venture-row">
                 <div>
-                  <h3 className="venture-name">Helix Robotics</h3>
+                  <h3 className="venture-name">Professional Training Track</h3>
                   <p className="venture-blurb">
-                    Reinvented warehouse logistics with autonomous fleets now running in 40
-                    countries.
+                    1.5 km closed-loop network with 4-lane and 2-lane divided carriageways, roundabouts, signalized junctions, railway crossings, skid control areas, and motorcycle 8-tracks.
                   </p>
                 </div>
                 <div className="venture-meta">
-                  <p className="venture-year">2019</p>
-                  <p className="venture-outcome">Acquired — $1.1B</p>
+                  <p className="venture-year">Phase 1</p>
+                  <p className="venture-outcome">Lot 2 — 4.0 Acres</p>
                 </div>
               </div>
-              <p className="venture-category">Industrial Automation</p>
+              <p className="venture-category">Physical Track Infrastructure</p>
             </li>
             <li className="venture-card venture-offset reveal-60" data-reveal="" data-delay="120">
               <div
                 className="liquid venture-liquid"
                 data-no-hover=""
                 data-scale="28"
-                data-alt="Northwind Energy"
-                data-src="/gallery-2.png"
+                data-alt="High-Fidelity Driving Simulation Labs"
+                data-src="/facility-simulation.jpg"
               ></div>
               <div className="venture-row">
                 <div>
-                  <h3 className="venture-name">Northwind Energy</h3>
+                  <h3 className="venture-name">High-Fidelity Simulation Labs</h3>
                   <p className="venture-blurb">
-                    Brought utility-scale storage to the grid years before the market believed
-                    it was viable.
+                    Multi-screen driving simulators replicating rain, dense fog, mountain gradient descent, and critical emergency reaction maneuvers prior to practical track training.
                   </p>
                 </div>
                 <div className="venture-meta">
-                  <p className="venture-year">2015</p>
-                  <p className="venture-outcome">IPO — NYSE: NWND</p>
+                  <p className="venture-year">Phase 2</p>
+                  <p className="venture-outcome">Virtual Simulation</p>
                 </div>
               </div>
-              <p className="venture-category">Climate Infrastructure</p>
+              <p className="venture-category">Digital Technology &amp; AI</p>
             </li>
             <li className="venture-card reveal-60" data-reveal="" data-delay="0">
               <div
                 className="liquid venture-liquid"
                 data-no-hover=""
                 data-scale="28"
-                data-alt="Cadence Health"
-                data-src="/gallery-3.JPG"
+                data-alt="Vehicle Testing & Brake Inspection Facility"
+                data-src="/facility-inspection.jpg"
               ></div>
               <div className="venture-row">
                 <div>
-                  <h3 className="venture-name">Cadence Health</h3>
+                  <h3 className="venture-name">Vehicle Testing &amp; Inspection Bay</h3>
                   <p className="venture-blurb">
-                    Put a clinician in every pocket and rewired how chronic care gets delivered.
+                    Cargo Weighbridge for axle-load training and computerized Roller Brake Tester (RBT) to teach commercial vehicle dynamics and support roadworthiness assessments.
                   </p>
                 </div>
                 <div className="venture-meta">
-                  <p className="venture-year">2011</p>
-                  <p className="venture-outcome">Acquired — $640M</p>
+                  <p className="venture-year">Phase 2</p>
+                  <p className="venture-outcome">Weighbridge &amp; RBT</p>
                 </div>
               </div>
-              <p className="venture-category">Digital Medicine</p>
+              <p className="venture-category">Technical Safety &amp; Diagnostics</p>
             </li>
             <li className="venture-card venture-offset reveal-60" data-reveal="" data-delay="120">
               <div
                 className="liquid venture-liquid"
                 data-no-hover=""
                 data-scale="28"
-                data-alt="RSA Capital"
-                data-src="/gallery-4.JPG"
+                data-alt="Academic and Administrative Centre Complex"
+                data-src="/facility-campus.jpg"
               ></div>
               <div className="venture-row">
                 <div>
-                  <h3 className="venture-name">RSA Capital</h3>
+                  <h3 className="venture-name">Academic &amp; Admin Complex</h3>
                   <p className="venture-blurb">
-                    Backing the next generation of contrarian founders building hard, durable
-                    companies.
+                    7,000 sq.ft building blending Northern local architecture, featuring multimedia lecture halls, central CCTV observation tower, registration lounges, and cafeteria.
                   </p>
                 </div>
                 <div className="venture-meta">
-                  <p className="venture-year">2008</p>
-                  <p className="venture-outcome">Active — $900M AUM</p>
+                  <p className="venture-year">Phases 1–3</p>
+                  <p className="venture-outcome">Lot 1 — 1.0 Acre</p>
                 </div>
               </div>
-              <p className="venture-category">Venture Investing</p>
+              <p className="venture-category">Educational &amp; Administrative Campus</p>
             </li>
           </ul>
         </section>
@@ -797,28 +802,28 @@ export default function Home() {
         <section id="impact" className="section">
           <div className="section-header">
             <div>
-              <p className="eyebrow">By The Numbers</p>
+              <p className="eyebrow">The Urgency &amp; Scale</p>
               <h2 className="heading" data-reveal-lines="">
-                Two decades, measured.
+                Sri Lanka&rsquo;s road safety challenge in numbers.
               </h2>
             </div>
           </div>
           <dl className="stats-grid">
             <div className="stat-cell reveal-32" data-reveal="" data-delay="0">
-              <dd className="stat-figure">4</dd>
-              <dt className="stat-label">Companies founded &amp; exited</dt>
+              <dd className="stat-figure">2,500+</dd>
+              <dt className="stat-label">Lives lost annually on Sri Lankan roads (~6.5/day)</dt>
             </div>
             <div className="stat-cell reveal-32" data-reveal="" data-delay="110">
-              <dd className="stat-figure">$3.2B</dd>
-              <dt className="stat-label">Enterprise value created</dt>
+              <dd className="stat-figure">3%–5%</dd>
+              <dt className="stat-label">National GDP lost annually to road crash economic burden</dt>
             </div>
             <div className="stat-cell reveal-32" data-reveal="" data-delay="220">
-              <dd className="stat-figure">120M+</dd>
-              <dt className="stat-label">People served by his products</dt>
+              <dd className="stat-figure">5.0</dd>
+              <dt className="stat-label">Acres allocated by District Secretariat in Umaiyalpuram</dt>
             </div>
             <div className="stat-cell reveal-32" data-reveal="" data-delay="330">
-              <dd className="stat-figure">2,400</dd>
-              <dt className="stat-label">Jobs created across ventures</dt>
+              <dd className="stat-figure">LKR 325M+</dd>
+              <dt className="stat-label">Total investment across 3 phased development stages</dt>
             </div>
           </dl>
         </section>
@@ -826,9 +831,9 @@ export default function Home() {
         <section id="voices" className="section">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Voices</p>
+              <p className="eyebrow">Leadership &amp; Voices</p>
               <h2 className="heading" data-reveal-lines="">
-                What they say.
+                The vision behind the Academy.
               </h2>
             </div>
           </div>
@@ -838,8 +843,8 @@ export default function Home() {
                 <button className="voice-btn active" data-index="0">
                   <span className="voice-num">01</span>
                   <span className="voice-info">
-                    <span className="voice-name">Kasun Fernando</span>
-                    <span className="voice-role">Managing Partner, Meridian Ventures</span>
+                    <span className="voice-name">Mr. S. Muralitharan</span>
+                    <span className="voice-role">Government Agent, Kilinochchi</span>
                   </span>
                   <span className="voice-rule"></span>
                 </button>
@@ -848,8 +853,8 @@ export default function Home() {
                 <button className="voice-btn" data-index="1">
                   <span className="voice-num">02</span>
                   <span className="voice-info">
-                    <span className="voice-name">Thivya Selvarajah</span>
-                    <span className="voice-role">Founder &amp; CEO, Cadence Health</span>
+                    <span className="voice-name">Mr. Aloysious Santhiapillai</span>
+                    <span className="voice-role">Accident Investigation Specialist (Norway)</span>
                   </span>
                   <span className="voice-rule"></span>
                 </button>
@@ -858,8 +863,8 @@ export default function Home() {
                 <button className="voice-btn" data-index="2">
                   <span className="voice-num">03</span>
                   <span className="voice-info">
-                    <span className="voice-name">Fathima Rizwan</span>
-                    <span className="voice-role">CEO, Northwind Energy</span>
+                    <span className="voice-name">Rtn. R. Kajendrakumar</span>
+                    <span className="voice-role">Project Lead, Rotary Kilinochchi</span>
                   </span>
                   <span className="voice-rule"></span>
                 </button>
@@ -871,7 +876,7 @@ export default function Home() {
                   <p id="voiceQuoteText"></p>
                 </blockquote>
                 <footer className="voice-footer" id="voiceFooter">
-                  Kasun Fernando — Managing Partner, Meridian Ventures
+                  Mr. S. Muralitharan — Government Agent &amp; District Secretary, Kilinochchi
                 </footer>
               </div>
               <div className="voice-portrait-wrap">
@@ -879,8 +884,8 @@ export default function Home() {
                   className="liquid voice-liquid"
                   id="voiceLiquid"
                   data-scale="22"
-                  data-alt="Kasun Fernando"
-                  data-src={`${ASSET_BASE}/voices/voice-01.webp`}
+                  data-alt="Mr. S. Muralitharan"
+                  data-src="/voice-muralitharan.jpg"
                 ></div>
               </div>
             </div>
@@ -888,17 +893,22 @@ export default function Home() {
         </section>
 
         <section id="contact" className="contact">
-          <p className="eyebrow">Let&rsquo;s Build</p>
+          <p className="eyebrow">Support The Mission</p>
           <h2 className="heading-xl" data-reveal-lines="">
-            Have something the world says can&rsquo;t be done?
+            Every Journey Safe.<br />Every Life Valued.
           </h2>
           <p className="lead reveal-16" data-reveal="" data-delay="0">
-            That&rsquo;s usually where I start. I read every message I&rsquo;m sent.
+            Dedicated to eliminating preventable road trauma across Sri Lanka. Partner with the Rotary Club of Kilinochchi Town, the District Secretariat, and Master Hellie&rsquo;s Engineering Consultants to bring this life-saving academy to reality.
           </p>
-          <Link to="/donate" className="btn">
-            Donate Now
-            <span aria-hidden="true">&#8599;</span>
-          </Link>
+          <div className="contact-actions-row reveal-16" data-reveal="" data-delay="90">
+            <Link to="/donate" className="btn btn-hero">
+              Donate Now
+              <span aria-hidden="true">&#8599;</span>
+            </Link>
+            <Link to="/contact" className="btn btn-outline">
+              Visit the Office &bull; Contact the Team
+            </Link>
+          </div>
         </section>
       </main>
 
