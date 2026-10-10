@@ -18,13 +18,12 @@ export default function Projects() {
   return (
     <div ref={rootRef}>
       <section className="page-hero">
-        <p className="eyebrow">Our Projects</p>
+        <p className="eyebrow">Our Projects &amp; Phases</p>
         <h1 className="heading-xl reveal-16" data-reveal data-delay="0">
-          Community, built to last.
+          From Awareness to Infrastructure.
         </h1>
         <p className="lead reveal-16" data-reveal data-delay="90">
-          Heritage and community initiatives we have completed, and the ones we are planning
-          next.
+          Explore our completed community road safety awareness campaigns and the phased engineering development of the 5-acre Driver Training Institute in Kilinochchi.
         </p>
       </section>
 
