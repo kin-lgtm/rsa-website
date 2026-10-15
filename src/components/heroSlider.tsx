@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../styles/heroSlider.css';
 
 const slides = [
   { image: '/hero.jpg', alt: 'Sri Lankan tea estate' },
@@ -8,7 +9,9 @@ const slides = [
 
 export default function HeroSlider() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollOffset, setScrollOffset] = useState(0);
 
+  // Auto‑slide interval
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -16,8 +19,18 @@ export default function HeroSlider() {
     return () => clearInterval(interval);
   }, []);
 
+  // Parallax scroll effect – updates on window scroll
+  useEffect(() => {
+    const handleScroll = () => setScrollOffset(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="relative w-full aspect-4/3 lg:aspect-square bg-gray-200 overflow-hidden">
+    <div
+      className="hero-slider relative w-full aspect-4/3 lg:aspect-square bg-gray-200 overflow-hidden"
+      style={{ transform: `translateY(${scrollOffset * 0.2}px)` }}
+    >
       {slides.map((slide, index) => (
         <img
           key={slide.image}
@@ -26,6 +39,7 @@ export default function HeroSlider() {
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             index === activeIndex ? 'opacity-100' : 'opacity-0'
           }`}
+          style={{ transform: `translateY(${scrollOffset * 0.5}px)` }}
         />
       ))}
 
