@@ -1,0 +1,168 @@
+/* Road Safety Academy homepage redesign
+   Uses proposal reference images in /public/images/road-safety-academy.
+   Palette: deep navy, warm white and restrained safety amber. */
+
+.rsa-home {
+  --rsa-ink: #172a35;
+  --rsa-navy: #102b3a;
+  --rsa-navy-deep: #0a202c;
+  --rsa-muted: #64747b;
+  --rsa-paper: #f6f5f1;
+  --rsa-white: #fff;
+  --rsa-line: rgba(23, 42, 53, .14);
+  --rsa-amber: #e8a33d;
+  color: var(--rsa-ink);
+  background: var(--rsa-paper);
+  overflow: clip;
+  font-family: inherit;
+}
+.rsa-home * { box-sizing: border-box; }
+.rsa-home a { text-decoration: none; }
+.rsa-container { width: min(1200px, calc(100% - 64px)); margin-inline: auto; }
+.rsa-hero {
+  min-height: min(800px, 88vh);
+  min-height: min(800px, 88svh);
+  position: relative; display: flex; align-items: center;
+  color: #fff; background: var(--rsa-navy-deep); isolation: isolate;
+}
+.rsa-hero-image, .rsa-hero-shade { position: absolute; inset: 0; z-index: -1; }
+.rsa-hero-image {
+  background-image: url('/images/training-track.png');
+  background-size: cover; background-position: center 48%;
+  transform: scale(1.015);
+}
+.rsa-hero-shade {
+  background: linear-gradient(90deg, rgba(7,24,34,.94) 0%, rgba(7,24,34,.82) 38%, rgba(7,24,34,.35) 72%, rgba(7,24,34,.18) 100%),
+              linear-gradient(0deg, rgba(7,24,34,.45), transparent 45%);
+}
+.rsa-hero-content { padding-block: 110px 100px; position: relative; }
+.rsa-kicker { display: flex; align-items: center; gap: 11px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+.rsa-kicker-light { color: rgba(255,255,255,.84); }
+.rsa-kicker-mark { width: 8px; height: 8px; border-radius: 50%; background: var(--rsa-amber); box-shadow: 0 0 0 5px rgba(232,163,61,.15); }
+.rsa-hero h1 { font-size: clamp(3.4rem, 7.2vw, 6.6rem); line-height: .98; letter-spacing: -.065em; font-weight: 650; max-width: 900px; margin: 34px 0 26px; }
+.rsa-hero h1 em, .rsa-home h2 em { color: var(--rsa-amber); font-style: normal; }
+.rsa-hero-copy { max-width: 550px; color: rgba(255,255,255,.78); font-size: clamp(1rem, 1.45vw, 1.15rem); line-height: 1.8; margin: 0; }
+.rsa-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 34px; }
+.rsa-button { display: inline-flex; align-items: center; justify-content: center; gap: 25px; min-height: 52px; padding: 0 22px; font-size: 13px; font-weight: 700; border-radius: 3px; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.rsa-button:hover { transform: translateY(-2px); }
+.rsa-button-primary { background: var(--rsa-amber); color: #172a35; border: 1px solid var(--rsa-amber); }
+.rsa-button-primary:hover { background: #f2b657; }
+.rsa-button-glass { color: #fff; border: 1px solid rgba(255,255,255,.42); background: rgba(255,255,255,.04); }
+.rsa-button-glass:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
+.rsa-hero-note { display: flex; align-items: center; gap: 13px; margin-top: 66px; color: rgba(255,255,255,.68); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.rsa-note-line { width: 40px; height: 1px; background: var(--rsa-amber); }
+.rsa-hero-index { position: absolute; right: 32px; bottom: 30px; font-size: 10px; letter-spacing: .16em; color: rgba(255,255,255,.65); }
+.rsa-facts { background: #fff; border-bottom: 1px solid var(--rsa-line); }
+.rsa-facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.rsa-fact { min-height: 138px; padding: 27px 28px; border-left: 1px solid var(--rsa-line); display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.rsa-fact:last-child { border-right: 1px solid var(--rsa-line); }
+.rsa-fact-value { font-size: clamp(2rem, 3.3vw, 2.75rem); font-weight: 650; line-height: 1; letter-spacing: -.05em; }
+.rsa-fact-value small { font-size: .45em; letter-spacing: 0; font-weight: 600; }
+.rsa-fact-label { font-size: 11px; line-height: 1.5; color: var(--rsa-muted); }
+.rsa-fact-statement { background: var(--rsa-navy); }
+.rsa-fact-statement .rsa-fact-label { color: #c4d0d4; text-transform: uppercase; letter-spacing: .12em; }
+.rsa-fact-statement strong { color: white; font-size: 17px; line-height: 1.45; font-weight: 600; }
+.rsa-section { padding: 115px 0; }
+.rsa-intro { background: var(--rsa-paper); }
+.rsa-intro-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 12%; align-items: start; }
+.rsa-eyebrow { margin: 0 0 23px; color: #9a6b27; text-transform: uppercase; font-size: 10px; font-weight: 800; letter-spacing: .17em; }
+.rsa-home h2 { font-size: clamp(2.5rem, 4.5vw, 4.25rem); line-height: 1.06; letter-spacing: -.055em; font-weight: 600; margin: 0; }
+.rsa-intro-heading h2 { max-width: 590px; }
+.rsa-intro-heading h2 em, .rsa-section-heading h2 em, .rsa-location h2 em { color: #a8752d; }
+.rsa-intro-copy { padding-top: 40px; }
+.rsa-intro-copy p, .rsa-location-copy > p { color: var(--rsa-muted); font-size: 15px; line-height: 1.9; margin: 0 0 18px; }
+.rsa-text-link { display: inline-flex; gap: 22px; align-items: center; color: var(--rsa-ink); font-size: 12px; font-weight: 800; padding: 12px 0 8px; border-bottom: 1px solid #bd8a40; margin-top: 10px; }
+.rsa-text-link span { color: #a8752d; font-size: 17px; transition: transform .2s ease; }
+.rsa-text-link:hover span { transform: translate(3px,-3px); }
+.rsa-facilities { background: #fff; }
+.rsa-section-heading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 48px; }
+.rsa-section-heading h2 { font-size: clamp(2.5rem, 4.5vw, 4rem); }
+.rsa-section-description { max-width: 365px; color: var(--rsa-muted); font-size: 14px; line-height: 1.8; margin: 0 0 4px; }
+.rsa-facility-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 34px 25px; }
+.rsa-facility-card { min-width: 0; background: #f8f8f5; border: 1px solid rgba(23,42,53,.08); }
+.rsa-facility-image-wrap { height: clamp(220px, 28vw, 345px); position: relative; overflow: hidden; background: #dce1df; }
+.rsa-facility-image { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .65s cubic-bezier(.2,.65,.2,1); }
+.rsa-facility-card:hover .rsa-facility-image { transform: scale(1.035); }
+.rsa-facility-number { position: absolute; top: 16px; left: 16px; display: grid; place-items: center; width: 40px; height: 40px; background: var(--rsa-amber); color: var(--rsa-ink); font-size: 11px; font-weight: 800; }
+.rsa-facility-content { padding: 26px 27px 29px; }
+.rsa-facility-tag { color: #9a6b27; text-transform: uppercase; letter-spacing: .14em; font-size: 9px; font-weight: 800; }
+.rsa-facility-content h3 { margin: 12px 0 10px; font-size: 22px; line-height: 1.25; letter-spacing: -.03em; font-weight: 650; }
+.rsa-facility-content p { color: var(--rsa-muted); font-size: 13px; line-height: 1.8; margin: 0; max-width: 540px; }
+.rsa-image-note { color: #78858a; font-size: 10px; line-height: 1.6; margin: 22px 0 0; }
+.rsa-learning { display: grid; grid-template-columns: .9fr 1.1fr; background: var(--rsa-navy); color: #fff; }
+.rsa-learning-image { min-height: 760px; background: url('/images/academy-building.png') center/cover no-repeat; }
+.rsa-learning-panel { padding: 100px clamp(40px, 7vw, 115px) 95px; }
+.rsa-eyebrow-light { color: #e8b86e; }
+.rsa-learning-panel h2 { font-size: clamp(2.7rem, 4vw, 4rem); }
+.rsa-learning-lead { color: #c2cfd3; font-size: 14px; line-height: 1.85; max-width: 550px; margin: 25px 0 32px; }
+.rsa-principles { border-top: 1px solid rgba(255,255,255,.18); margin-bottom: 30px; }
+.rsa-principle { display: grid; grid-template-columns: 42px 1fr; gap: 15px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+.rsa-principle > span { color: var(--rsa-amber); font-size: 11px; font-weight: 800; padding-top: 3px; }
+.rsa-principle h3 { margin: 0 0 7px; font-size: 16px; font-weight: 650; }
+.rsa-principle p { margin: 0; color: #bdcbd0; font-size: 12px; line-height: 1.7; max-width: 440px; }
+.rsa-button-light { color: var(--rsa-ink); background: #fff; border: 1px solid #fff; }
+.rsa-button-light:hover { background: #e9edf0; }
+.rsa-location { padding: 112px 0; background: var(--rsa-paper); }
+.rsa-location-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 12%; }
+.rsa-location h2 { max-width: 530px; }
+.rsa-location-copy { padding-top: 15px; }
+.rsa-location-detail { display: flex; align-items: center; gap: 15px; border-block: 1px solid var(--rsa-line); padding: 20px 0; margin: 25px 0 12px; }
+.rsa-location-pin { display: grid; place-items: center; width: 42px; height: 42px; background: #e9e4d9; color: #93652b; font-size: 24px; border-radius: 50%; }
+.rsa-location-detail div { display: flex; flex-direction: column; gap: 5px; }
+.rsa-location-detail strong { font-size: 13px; }
+.rsa-location-detail span:last-child { font-size: 11px; color: var(--rsa-muted); }
+.rsa-cta { position: relative; isolation: isolate; background: var(--rsa-navy-deep); color: #fff; overflow: hidden; }
+.rsa-cta-bg { position: absolute; z-index: -1; inset: 0; opacity: .22; background: url('/images/roundabout-training.png') center/cover no-repeat; }
+.rsa-cta::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(7,24,34,.97), rgba(7,24,34,.75)); }
+.rsa-cta-content { padding-block: 105px 115px; }
+.rsa-cta h2 { font-size: clamp(3.2rem, 6.2vw, 5.8rem); }
+.rsa-cta > .rsa-container > p:not(.rsa-eyebrow) { max-width: 490px; color: #c3d0d4; font-size: 14px; line-height: 1.8; margin: 24px 0 0; }
+@media (max-width: 900px) {
+  .rsa-container { width: min(100% - 40px, 720px); }
+  .rsa-hero { min-height: 730px; min-height: 78svh; }
+  .rsa-hero h1 { font-size: clamp(3.3rem, 10vw, 5.4rem); }
+  .rsa-fact { padding: 24px 18px; }
+  .rsa-intro-grid, .rsa-location-grid { grid-template-columns: 1fr; gap: 28px; }
+  .rsa-intro-copy { padding-top: 0; max-width: 650px; }
+  .rsa-section { padding: 85px 0; }
+  .rsa-section-heading { align-items: start; flex-direction: column; gap: 20px; }
+  .rsa-section-description { max-width: 600px; }
+  .rsa-learning { grid-template-columns: 1fr; }
+  .rsa-learning-image { min-height: 430px; }
+  .rsa-learning-panel { padding: 75px max(20px, calc((100vw - 720px)/2)) 80px; }
+  .rsa-location-copy { padding-top: 0; max-width: 650px; }
+}
+@media (max-width: 600px) {
+  .rsa-container { width: calc(100% - 36px); }
+  .rsa-hero { min-height: 720px; min-height: 88svh; align-items: end; }
+  .rsa-hero-content { padding-block: 120px 82px; }
+  .rsa-kicker { font-size: 9px; letter-spacing: .1em; line-height: 1.7; }
+  .rsa-hero h1 { font-size: clamp(3rem, 14vw, 4.5rem); margin: 27px 0 22px; }
+  .rsa-hero-copy { font-size: 14px; line-height: 1.75; }
+  .rsa-hero-actions { align-items: stretch; flex-direction: column; max-width: 320px; }
+  .rsa-button { width: 100%; justify-content: space-between; }
+  .rsa-hero-note { margin-top: 43px; font-size: 9px; letter-spacing: .05em; }
+  .rsa-hero-index { right: 18px; bottom: 15px; }
+  .rsa-facts-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .rsa-fact { min-height: 120px; padding: 22px 16px; }
+  .rsa-fact:nth-child(3) { border-top: 1px solid var(--rsa-line); }
+  .rsa-fact:nth-child(4) { border-top: 1px solid var(--rsa-line); }
+  .rsa-fact-value { font-size: 2.25rem; }
+  .rsa-fact-label { font-size: 10px; }
+  .rsa-section { padding: 70px 0; }
+  .rsa-home h2 { font-size: clamp(2.45rem, 11vw, 3.3rem); }
+  .rsa-eyebrow { margin-bottom: 17px; }
+  .rsa-facility-grid { grid-template-columns: 1fr; gap: 20px; }
+  .rsa-facility-image-wrap { height: 250px; }
+  .rsa-facility-content { padding: 22px; }
+  .rsa-facility-content h3 { font-size: 20px; }
+  .rsa-learning-image { min-height: 300px; }
+  .rsa-learning-panel { padding: 65px 18px 70px; }
+  .rsa-learning-panel h2 { font-size: 2.8rem; }
+  .rsa-location { padding: 70px 0; }
+  .rsa-cta-content { padding-block: 75px 85px; }
+  .rsa-cta h2 { font-size: clamp(3rem, 13vw, 4.2rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rsa-home *, .rsa-home *::before, .rsa-home *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

@@ -1,4 +1,4 @@
-/* Ayubowan Gifts Collection — site-wide editorial theme (maroon/red on white).
+/* Road Safety Academy — site-wide editorial theme (navy / amber on warm white).
    Global (unscoped): the whole site now uses this design language, so
    there is no more "other theme" to protect against. Rules here are not
    wrapped in a Tailwind @layer, so they always win over Tailwind's
@@ -6,7 +6,7 @@
 
 html {
   font-size: 16px;
-  background: #ffffff;
+  background: #f6f5f1;
 }
 
 @media (max-width: 1920px) {
@@ -40,16 +40,16 @@ html {
 :root {
   --font-display: "Anton", sans-serif;
   --font-sans: "Onest", sans-serif;
-  --background: #ffffff;
-  --foreground: #111111;
-  --surface: #f7f2f3;
-  --surface-2: #efe4e6;
-  --muted: #746669;
-  --line: rgba(17, 17, 17, 0.1);
-  --line-strong: rgba(17, 17, 17, 0.18);
-  --accent: #b52a3a;
-  --accent-2: #7a1e2c;
-  --accent-gradient: linear-gradient(135deg, #7a1e2c 0%, #b52a3a 100%);
+  --background: #f6f5f1;
+  --foreground: #172a35;
+  --surface: #eceae4;
+  --surface-2: #e2ded6;
+  --muted: #64747b;
+  --line: rgba(23, 42, 53, 0.14);
+  --line-strong: rgba(23, 42, 53, 0.22);
+  --accent: #e8a33d;
+  --accent-2: #a8752d;
+  --accent-gradient: linear-gradient(135deg, #a8752d 0%, #e8a33d 100%);
   --gutter: 2.5rem;
   --section: 9rem;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

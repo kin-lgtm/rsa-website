@@ -5,6 +5,7 @@ import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { hasHomePreloaderPlayed, markHomePreloaderPlayed } from '../lib/session';
 import '../styles/theme.css';
+import '../styles/home-redesign.css';
 
 const SVG_NS = 'http://www.w3.org/2000/svg' as const;
 
@@ -559,7 +560,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={rootRef}>
+    <div ref={rootRef} className="rsa-home">
       <div id="preloader" aria-hidden="false">
         <p className="preloader-brand">Road Safety Academy</p>
         <p className="preloader-count">
@@ -571,343 +572,371 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <section id="top" className="hero">
-          <div className="hero-bg" style={{ backgroundImage: 'url(/hero-bg.jfif)' }}></div>
-          <div className="hero-scrim"></div>
-
-          <div className="hero-content-wrap">
-            <div className="hero-badge">
-              <span className="hero-badge-dot"></span>
-              <span>Road Safety Academy &bull; Sri Lanka</span>
-            </div>
-
-            <h1 className="hero-name" id="heroName">
+        {/* ──────── HERO ──────── */}
+        <section className="rsa-hero">
+          <div className="rsa-hero-image"></div>
+          <div className="rsa-hero-shade"></div>
+          <div className="rsa-container rsa-hero-content">
+            <p className="rsa-kicker rsa-kicker-light">
+              <span className="rsa-kicker-mark"></span>
+              Road Safety Academy &bull; Sri Lanka
+            </p>
+            <h1 id="heroName">
               <span className="name-line">Road</span>
               <span className="name-line">Safety</span>
-              <span className="name-line">Academy</span>
+              <span className="name-line"><em>Academy</em></span>
             </h1>
-
-            <p className="hero-lead reveal-16" id="heroDesc">
-              Every Journey Safe. Every Life Valued.
+            <p className="rsa-hero-copy" id="heroDesc">
+              Every Journey Safe. Every Life Valued. Sri Lanka&rsquo;s first
+              purpose-built driver education ecosystem, rising in Kilinochchi.
             </p>
-
-            <div className="hero-actions-wrap reveal-16">
-              <Link to="/donate" className="btn-hero">
+            <div className="rsa-hero-actions">
+              <Link to="/donate" className="rsa-button rsa-button-primary">
                 Donate Now <span aria-hidden="true">&#8599;</span>
               </Link>
-              <Link to="/about" className="btn-hero-secondary">
+              <Link to="/about" className="rsa-button rsa-button-glass">
                 Learn More &rarr;
               </Link>
             </div>
+            <p className="rsa-hero-note" id="scrollCue">
+              <span className="rsa-note-line"></span>
+              Scroll to explore
+            </p>
           </div>
-
-          <div className="hero-car-tag" aria-hidden="true">
-            <span className="car-tag-dot"></span>
-            <span>Driver Training &bull; Safe Roads For All</span>
-          </div>
-
-          <div className="scroll-cue reveal-fade-only" id="scrollCue">
-            <span className="cue-rule"></span>
-            Scroll to enter
-          </div>
+          <span className="rsa-hero-index">RSA / 2025</span>
         </section>
 
-        <section className="marquee" aria-label="Academy Core Pillars">
-          <div className="marquee-track">
-            <div className="marquee-group">
-              <span className="marquee-word">Vision Zero</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Driver Training Track</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">High-Fidelity Simulation</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Safety First</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Kilinochchi Campus</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Every Life Valued</span>
-              <span className="marquee-dot"></span>
+        {/* ──────── FACTS BAR ──────── */}
+        <section className="rsa-facts">
+          <div className="rsa-facts-grid">
+            <div className="rsa-fact">
+              <span className="rsa-fact-value">2,500<small>+</small></span>
+              <span className="rsa-fact-label">Lives lost annually on Sri Lankan roads</span>
             </div>
-            <div className="marquee-group">
-              <span className="marquee-word">Vision Zero</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Driver Training Track</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">High-Fidelity Simulation</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Safety First</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Kilinochchi Campus</span>
-              <span className="marquee-dot"></span>
-              <span className="marquee-word">Every Life Valued</span>
-              <span className="marquee-dot"></span>
+            <div className="rsa-fact">
+              <span className="rsa-fact-value">5.0</span>
+              <span className="rsa-fact-label">Acres allocated by District Secretariat</span>
+            </div>
+            <div className="rsa-fact">
+              <span className="rsa-fact-value">LKR 325M<small>+</small></span>
+              <span className="rsa-fact-label">Total investment across 3 phases</span>
+            </div>
+            <div className="rsa-fact rsa-fact-statement">
+              <span className="rsa-fact-label">Vision</span>
+              <strong>Zero preventable road deaths&mdash;designed for human error.</strong>
             </div>
           </div>
         </section>
 
-        <section id="story" className="section">
-          <div className="story-grid">
-            <div className="story-left">
-              <p className="eyebrow">The Origin &amp; Mission</p>
-              <h2 className="heading-lg" data-reveal-lines="">
-                Transforming road safety from crisis to culture.
+        {/* ──────── INTRO / STORY ──────── */}
+        <section className="rsa-section rsa-intro">
+          <div className="rsa-container rsa-intro-grid">
+            <div className="rsa-intro-heading">
+              <p className="rsa-eyebrow">The Origin &amp; Mission</p>
+              <h2 data-reveal-lines="">
+                Transforming road safety from <em>crisis to culture.</em>
               </h2>
-              <p className="lead reveal-16" data-reveal="" data-delay="0">
-                In Sri Lanka, over 2,500 lives are tragically lost each year in road traffic accidents — an average of 6.5 deaths every single day. In the Northern Province, learner drivers have historically trained on public roads without access to a controlled environment that simulates complex real-world situations. The Road Safety Academy changes this paradigm by establishing the nation&rsquo;s premier purpose-built driver education ecosystem in Kilinochchi.
+            </div>
+            <div className="rsa-intro-copy" data-reveal="" data-delay="0">
+              <p>
+                In Sri Lanka, over 2,500 lives are tragically lost each year in road
+                traffic accidents&mdash;an average of 6.5 deaths every single day.
+                In the Northern Province, learner drivers have historically trained on
+                public roads without access to a controlled environment that simulates
+                complex real-world situations.
+              </p>
+              <p>
+                The Road Safety Academy changes this paradigm by establishing the
+                nation&rsquo;s premier purpose-built driver education ecosystem in
+                Kilinochchi, inspired by the Norwegian Vision Zero framework championed
+                by retired Chief Engineer Aloysious Santhiapillai.
+              </p>
+              <Link to="/about" className="rsa-text-link">
+                Read Full Story <span aria-hidden="true">&#8599;</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ──────── FACILITIES ──────── */}
+        <section className="rsa-section rsa-facilities">
+          <div className="rsa-container">
+            <div className="rsa-section-heading">
+              <div>
+                <p className="rsa-eyebrow">The Institute Infrastructure</p>
+                <h2 data-reveal-lines="">
+                  Purpose-built facilities for <em>real-world mastery.</em>
+                </h2>
+              </div>
+              <p className="rsa-section-description">
+                A phased development programme across 5 acres, engineered by Master
+                Hellie&rsquo;s Engineering Consultants in strict RDA &amp; RMV compliance.
               </p>
             </div>
-            <ul className="story-list">
-              <li className="reveal-32" data-reveal="" data-delay="0">
-                <span className="story-index">01</span>
-                <div>
-                  <h3>Vision Zero Philosophy</h3>
+            <div className="rsa-facility-grid">
+              {/* Card 1 */}
+              <div className="rsa-facility-card" data-reveal="" data-delay="0">
+                <div className="rsa-facility-image-wrap">
+                  <img
+                    className="rsa-facility-image"
+                    src="/images/training-track.png"
+                    alt="Professional Driver Training Track"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="rsa-facility-number">01</span>
+                </div>
+                <div className="rsa-facility-content">
+                  <span className="rsa-facility-tag">Physical Track Infrastructure</span>
+                  <h3>Professional Training Track</h3>
                   <p>
-                    Inspired by the Norwegian road safety model championed by retired Chief Engineer Aloysious Santhiapillai: road environments engineered to accommodate human error without lethal outcomes.
+                    1.5 km closed-loop network with 4-lane and 2-lane divided
+                    carriageways, roundabouts, signalized junctions, railway crossings,
+                    skid control areas, and motorcycle 8-tracks.
                   </p>
                 </div>
-              </li>
-              <li className="reveal-32" data-reveal="" data-delay="90">
-                <span className="story-index">02</span>
-                <div>
-                  <h3>Public–Private Partnership</h3>
+              </div>
+              {/* Card 2 */}
+              <div className="rsa-facility-card" data-reveal="" data-delay="120">
+                <div className="rsa-facility-image-wrap">
+                  <img
+                    className="rsa-facility-image"
+                    src="/images/driving-simulator.png"
+                    alt="High-Fidelity Driving Simulation Labs"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="rsa-facility-number">02</span>
+                </div>
+                <div className="rsa-facility-content">
+                  <span className="rsa-facility-tag">Digital Technology &amp; AI</span>
+                  <h3>High-Fidelity Simulation Labs</h3>
                   <p>
-                    A collaborative initiative spearheaded by the Rotary Club of Kilinochchi Town (District 3220) and the Government Agent of Kilinochchi, securing 5 acres of land in Umaiyalpuram along the A9 corridor.
+                    Multi-screen driving simulators replicating rain, dense fog,
+                    mountain gradient descent, and critical emergency reaction maneuvers
+                    prior to practical track training.
                   </p>
                 </div>
-              </li>
-              <li className="reveal-32" data-reveal="" data-delay="180">
-                <span className="story-index">03</span>
-                <div>
-                  <h3>Simulation to Track Progression</h3>
+              </div>
+              {/* Card 3 */}
+              <div className="rsa-facility-card" data-reveal="" data-delay="0">
+                <div className="rsa-facility-image-wrap">
+                  <img
+                    className="rsa-facility-image"
+                    src="/images/vehicle-inspection.png"
+                    alt="Vehicle Testing & Brake Inspection Facility"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="rsa-facility-number">03</span>
+                </div>
+                <div className="rsa-facility-content">
+                  <span className="rsa-facility-tag">Technical Safety &amp; Diagnostics</span>
+                  <h3>Vehicle Testing &amp; Inspection Bay</h3>
                   <p>
-                    A structured 4-stage curriculum integrating theory, high-fidelity virtual simulators, closed-loop track maneuvering, and real-world competency evaluation.
+                    Cargo Weighbridge for axle-load training and computerized Roller
+                    Brake Tester (RBT) to teach commercial vehicle dynamics and support
+                    roadworthiness assessments.
                   </p>
                 </div>
-              </li>
-              <li className="reveal-32" data-reveal="" data-delay="270">
-                <span className="story-index">04</span>
-                <div>
-                  <h3>RDA &amp; RMV Standards</h3>
+              </div>
+              {/* Card 4 */}
+              <div className="rsa-facility-card" data-reveal="" data-delay="120">
+                <div className="rsa-facility-image-wrap">
+                  <img
+                    className="rsa-facility-image"
+                    src="/images/academy-building.png"
+                    alt="Academic and Administrative Centre Complex"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="rsa-facility-number">04</span>
+                </div>
+                <div className="rsa-facility-content">
+                  <span className="rsa-facility-tag">Educational &amp; Admin Campus</span>
+                  <h3>Academic &amp; Admin Complex</h3>
                   <p>
-                    Engineered by Master Hellie&rsquo;s Engineering Consultants in strict compliance with Road Development Authority and Department of Motor Traffic regulations for light, heavy, and motorcycle licenses.
+                    7,000 sq.ft building featuring multimedia lecture halls, central
+                    CCTV observation tower, registration lounges, and cafeteria.
                   </p>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
+            <p className="rsa-image-note">
+              * Rendered visuals based on Master Hellie&rsquo;s engineering proposal;
+              final construction may vary.
+            </p>
           </div>
         </section>
 
-        <section id="ventures" className="section">
-          <div className="section-header">
-            <div>
-              <p className="eyebrow">The Institute Infrastructure</p>
-              <h2 className="heading-lg" data-reveal-lines="">
-                Purpose-built facilities for real-world mastery.
-              </h2>
-            </div>
-            <p className="section-counter">04 / Facilities</p>
-          </div>
-          <ul className="ventures-grid">
-            <li className="venture-card reveal-60" data-reveal="" data-delay="0">
-              <div
-                className="liquid venture-liquid"
-                data-no-hover=""
-                data-scale="28"
-                data-alt="Professional Driver Training Track - 1.5 km closed-loop network"
-                data-src="/facility-track.jpg"
-              ></div>
-              <div className="venture-row">
+        {/* ──────── LEARNING / METHODOLOGY ──────── */}
+        <section className="rsa-learning">
+          <div className="rsa-learning-image"></div>
+          <div className="rsa-learning-panel">
+            <p className="rsa-eyebrow rsa-eyebrow-light">Training Methodology</p>
+            <h2 data-reveal-lines="">
+              From simulation to <em>track mastery.</em>
+            </h2>
+            <p className="rsa-learning-lead">
+              A structured 4-stage curriculum integrating theory, high-fidelity
+              virtual simulators, closed-loop track maneuvering, and real-world
+              competency evaluation.
+            </p>
+            <div className="rsa-principles">
+              <div className="rsa-principle" data-reveal="" data-delay="0">
+                <span>01</span>
                 <div>
-                  <h3 className="venture-name">Professional Training Track</h3>
-                  <p className="venture-blurb">
-                    1.5 km closed-loop network with 4-lane and 2-lane divided carriageways, roundabouts, signalized junctions, railway crossings, skid control areas, and motorcycle 8-tracks.
-                  </p>
-                </div>
-                <div className="venture-meta">
-                  <p className="venture-year">Phase 1</p>
-                  <p className="venture-outcome">Lot 2 — 4.0 Acres</p>
+                  <h3>Theory &amp; Road Regulations</h3>
+                  <p>Comprehensive classroom instruction covering traffic law, hazard perception, and defensive driving principles.</p>
                 </div>
               </div>
-              <p className="venture-category">Physical Track Infrastructure</p>
-            </li>
-            <li className="venture-card venture-offset reveal-60" data-reveal="" data-delay="120">
-              <div
-                className="liquid venture-liquid"
-                data-no-hover=""
-                data-scale="28"
-                data-alt="High-Fidelity Driving Simulation Labs"
-                data-src="/facility-simulation.jpg"
-              ></div>
-              <div className="venture-row">
+              <div className="rsa-principle" data-reveal="" data-delay="90">
+                <span>02</span>
                 <div>
-                  <h3 className="venture-name">High-Fidelity Simulation Labs</h3>
-                  <p className="venture-blurb">
-                    Multi-screen driving simulators replicating rain, dense fog, mountain gradient descent, and critical emergency reaction maneuvers prior to practical track training.
-                  </p>
-                </div>
-                <div className="venture-meta">
-                  <p className="venture-year">Phase 2</p>
-                  <p className="venture-outcome">Virtual Simulation</p>
+                  <h3>Virtual Simulation</h3>
+                  <p>High-fidelity driving simulators recreating adverse conditions: rain, fog, mountain descents, and emergency scenarios.</p>
                 </div>
               </div>
-              <p className="venture-category">Digital Technology &amp; AI</p>
-            </li>
-            <li className="venture-card reveal-60" data-reveal="" data-delay="0">
-              <div
-                className="liquid venture-liquid"
-                data-no-hover=""
-                data-scale="28"
-                data-alt="Vehicle Testing & Brake Inspection Facility"
-                data-src="/facility-inspection.jpg"
-              ></div>
-              <div className="venture-row">
+              <div className="rsa-principle" data-reveal="" data-delay="180">
+                <span>03</span>
                 <div>
-                  <h3 className="venture-name">Vehicle Testing &amp; Inspection Bay</h3>
-                  <p className="venture-blurb">
-                    Cargo Weighbridge for axle-load training and computerized Roller Brake Tester (RBT) to teach commercial vehicle dynamics and support roadworthiness assessments.
-                  </p>
-                </div>
-                <div className="venture-meta">
-                  <p className="venture-year">Phase 2</p>
-                  <p className="venture-outcome">Weighbridge &amp; RBT</p>
+                  <h3>Track Maneuvering</h3>
+                  <p>Hands-on practice on the 1.5 km closed-loop track with roundabouts, junctions, and skid control areas.</p>
                 </div>
               </div>
-              <p className="venture-category">Technical Safety &amp; Diagnostics</p>
-            </li>
-            <li className="venture-card venture-offset reveal-60" data-reveal="" data-delay="120">
-              <div
-                className="liquid venture-liquid"
-                data-no-hover=""
-                data-scale="28"
-                data-alt="Academic and Administrative Centre Complex"
-                data-src="/facility-campus.jpg"
-              ></div>
-              <div className="venture-row">
+              <div className="rsa-principle" data-reveal="" data-delay="270">
+                <span>04</span>
                 <div>
-                  <h3 className="venture-name">Academic &amp; Admin Complex</h3>
-                  <p className="venture-blurb">
-                    7,000 sq.ft building blending Northern local architecture, featuring multimedia lecture halls, central CCTV observation tower, registration lounges, and cafeteria.
-                  </p>
-                </div>
-                <div className="venture-meta">
-                  <p className="venture-year">Phases 1–3</p>
-                  <p className="venture-outcome">Lot 1 — 1.0 Acre</p>
+                  <h3>Competency Evaluation</h3>
+                  <p>Assessed proficiency under real-world conditions, meeting RDA &amp; RMV certification standards.</p>
                 </div>
               </div>
-              <p className="venture-category">Educational &amp; Administrative Campus</p>
-            </li>
-          </ul>
-        </section>
-
-        <section id="impact" className="section">
-          <div className="section-header">
-            <div>
-              <p className="eyebrow">The Urgency &amp; Scale</p>
-              <h2 className="heading" data-reveal-lines="">
-                Sri Lanka&rsquo;s road safety challenge in numbers.
-              </h2>
             </div>
-          </div>
-          <dl className="stats-grid">
-            <div className="stat-cell reveal-32" data-reveal="" data-delay="0">
-              <dd className="stat-figure">2,500+</dd>
-              <dt className="stat-label">Lives lost annually on Sri Lankan roads (~6.5/day)</dt>
-            </div>
-            <div className="stat-cell reveal-32" data-reveal="" data-delay="110">
-              <dd className="stat-figure">3%–5%</dd>
-              <dt className="stat-label">National GDP lost annually to road crash economic burden</dt>
-            </div>
-            <div className="stat-cell reveal-32" data-reveal="" data-delay="220">
-              <dd className="stat-figure">5.0</dd>
-              <dt className="stat-label">Acres allocated by District Secretariat in Umaiyalpuram</dt>
-            </div>
-            <div className="stat-cell reveal-32" data-reveal="" data-delay="330">
-              <dd className="stat-figure">LKR 325M+</dd>
-              <dt className="stat-label">Total investment across 3 phased development stages</dt>
-            </div>
-          </dl>
-        </section>
-
-        <section id="voices" className="section">
-          <div className="section-header">
-            <div>
-              <p className="eyebrow">Leadership &amp; Voices</p>
-              <h2 className="heading" data-reveal-lines="">
-                The vision behind the Academy.
-              </h2>
-            </div>
-          </div>
-          <div className="voices-body">
-            <ul className="voices-list" id="voicesList">
-              <li>
-                <button className="voice-btn active" data-index="0">
-                  <span className="voice-num">01</span>
-                  <span className="voice-info">
-                    <span className="voice-name">Mr. S. Muralitharan</span>
-                    <span className="voice-role">Government Agent, Kilinochchi</span>
-                  </span>
-                  <span className="voice-rule"></span>
-                </button>
-              </li>
-              <li>
-                <button className="voice-btn" data-index="1">
-                  <span className="voice-num">02</span>
-                  <span className="voice-info">
-                    <span className="voice-name">Mr. Aloysious Santhiapillai</span>
-                    <span className="voice-role">Accident Investigation Specialist (Norway)</span>
-                  </span>
-                  <span className="voice-rule"></span>
-                </button>
-              </li>
-              <li>
-                <button className="voice-btn" data-index="2">
-                  <span className="voice-num">03</span>
-                  <span className="voice-info">
-                    <span className="voice-name">Rtn. R. Kajendrakumar</span>
-                    <span className="voice-role">Project Lead, Rotary Kilinochchi</span>
-                  </span>
-                  <span className="voice-rule"></span>
-                </button>
-              </li>
-            </ul>
-            <div className="voices-featured">
-              <div className="voice-text">
-                <blockquote className="voice-quote">
-                  <p id="voiceQuoteText"></p>
-                </blockquote>
-                <footer className="voice-footer" id="voiceFooter">
-                  Mr. S. Muralitharan — Government Agent &amp; District Secretary, Kilinochchi
-                </footer>
-              </div>
-              <div className="voice-portrait-wrap">
-                <div
-                  className="liquid voice-liquid"
-                  id="voiceLiquid"
-                  data-scale="22"
-                  data-alt="Mr. S. Muralitharan"
-                  data-src="/voice-muralitharan.jpg"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="contact">
-          <p className="eyebrow">Support The Mission</p>
-          <h2 className="heading-xl" data-reveal-lines="">
-            Every Journey Safe.<br />Every Life Valued.
-          </h2>
-          <p className="lead reveal-16" data-reveal="" data-delay="0">
-            Dedicated to eliminating preventable road trauma across Sri Lanka. Partner with the Rotary Club of Kilinochchi Town, the District Secretariat, and Master Hellie&rsquo;s Engineering Consultants to bring this life-saving academy to reality.
-          </p>
-          <div className="contact-actions-row reveal-16" data-reveal="" data-delay="90">
-            <Link to="/donate" className="btn btn-hero">
-              Donate Now
-              <span aria-hidden="true">&#8599;</span>
+            <Link to="/about" className="rsa-button rsa-button-light">
+              Explore the Curriculum <span aria-hidden="true">&#8599;</span>
             </Link>
-            <Link to="/contact" className="btn btn-outline">
-              Visit the Office &bull; Contact the Team
-            </Link>
+          </div>
+        </section>
+
+        {/* ──────── LOCATION ──────── */}
+        <section className="rsa-location">
+          <div className="rsa-container rsa-location-grid">
+            <div>
+              <p className="rsa-eyebrow">The Campus</p>
+              <h2 data-reveal-lines="">
+                Strategically located along <em>the A9 corridor.</em>
+              </h2>
+            </div>
+            <div className="rsa-location-copy" data-reveal="" data-delay="0">
+              <p>
+                Situated in Umaiyalpuram, Kilinochchi&mdash;5 acres of land
+                sanctioned by the District Secretariat. The campus sits along Sri
+                Lanka&rsquo;s primary north-south A9 highway, making it accessible
+                to learners across the Northern Province and beyond.
+              </p>
+              <div className="rsa-location-detail">
+                <span className="rsa-location-pin" aria-hidden="true">&#9679;</span>
+                <div>
+                  <strong>Umaiyalpuram, Kilinochchi District</strong>
+                  <span>A9 Highway Corridor &bull; Northern Province, Sri Lanka</span>
+                </div>
+              </div>
+              <Link to="/contact" className="rsa-text-link">
+                Visit the Project Office <span aria-hidden="true">&#8599;</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ──────── VOICES ──────── */}
+        <section className="rsa-section" style={{ background: '#fff' }}>
+          <div className="rsa-container">
+            <div className="rsa-section-heading">
+              <div>
+                <p className="rsa-eyebrow">Leadership &amp; Voices</p>
+                <h2 data-reveal-lines="">
+                  The vision behind the <em>Academy.</em>
+                </h2>
+              </div>
+            </div>
+            <div className="voices-body">
+              <ul className="voices-list" id="voicesList">
+                <li>
+                  <button className="voice-btn active" data-index="0">
+                    <span className="voice-num">01</span>
+                    <span className="voice-info">
+                      <span className="voice-name">Mr. S. Muralitharan</span>
+                      <span className="voice-role">Government Agent, Kilinochchi</span>
+                    </span>
+                    <span className="voice-rule"></span>
+                  </button>
+                </li>
+                <li>
+                  <button className="voice-btn" data-index="1">
+                    <span className="voice-num">02</span>
+                    <span className="voice-info">
+                      <span className="voice-name">Mr. Aloysious Santhiapillai</span>
+                      <span className="voice-role">Accident Investigation Specialist (Norway)</span>
+                    </span>
+                    <span className="voice-rule"></span>
+                  </button>
+                </li>
+                <li>
+                  <button className="voice-btn" data-index="2">
+                    <span className="voice-num">03</span>
+                    <span className="voice-info">
+                      <span className="voice-name">Rtn. R. Kajendrakumar</span>
+                      <span className="voice-role">Project Lead, Rotary Kilinochchi</span>
+                    </span>
+                    <span className="voice-rule"></span>
+                  </button>
+                </li>
+              </ul>
+              <div className="voices-featured">
+                <div className="voice-text">
+                  <blockquote className="voice-quote">
+                    <p id="voiceQuoteText"></p>
+                  </blockquote>
+                  <footer className="voice-footer" id="voiceFooter">
+                    Mr. S. Muralitharan &mdash; Government Agent &amp; District Secretary, Kilinochchi
+                  </footer>
+                </div>
+                <div className="voice-portrait-wrap">
+                  <div
+                    className="liquid voice-liquid"
+                    id="voiceLiquid"
+                    data-scale="22"
+                    data-alt="Mr. S. Muralitharan"
+                    data-src="/voice-muralitharan.jpg"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ──────── CTA ──────── */}
+        <section className="rsa-cta">
+          <div className="rsa-cta-bg"></div>
+          <div className="rsa-container rsa-cta-content">
+            <p className="rsa-eyebrow rsa-eyebrow-light">Support The Mission</p>
+            <h2 data-reveal-lines="">
+              Every Journey Safe.<br />Every Life <em>Valued.</em>
+            </h2>
+            <p>
+              Dedicated to eliminating preventable road trauma across Sri Lanka.
+              Partner with the Rotary Club of Kilinochchi Town, the District
+              Secretariat, and Master Hellie&rsquo;s Engineering Consultants to
+              bring this life-saving academy to reality.
+            </p>
+            <div className="rsa-hero-actions" style={{ marginTop: 34 }}>
+              <Link to="/donate" className="rsa-button rsa-button-primary">
+                Donate Now <span aria-hidden="true">&#8599;</span>
+              </Link>
+              <Link to="/contact" className="rsa-button rsa-button-glass">
+                Visit the Office &bull; Contact the Team
+              </Link>
+            </div>
           </div>
         </section>
       </main>
